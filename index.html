@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torya</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!--Navbar Section Start-->
+ <div class="container" dir="rtl">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">التؤوريا</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">الرئيسية</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">دراسة التؤوريا</a>
+        </li>
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            أسئلة التؤوريا
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">اسئلة تؤوريا خصوصي</a></li>
+            <li><a class="dropdown-item" href="#">اسئلة تؤوريا عمومي </a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">اسئلة متنوعة</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">الحصول على الرخصة</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" href="#">اتصل بنا</a>
+        </li>
+      </ul>
+      <form class="d-flex " role="search">
+        <input class="form-control ms-2" type="search" placeholder="ابحث" aria-label="Search"/>
+        <button class="btn btn-outline-success" type="submit">ابحث</button>
+      </form>
+    </div>
+  </div>
+</nav>
+ </div>
+  <!--Navbar Section End-->
+
+  <!--Hero Section with Slider Start-->
+  <div class="container">
+  <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+
+      <!-- Slide 1 -->
+      <div class="carousel-item active">
+        <div class="hero d-flex align-items-center text-center text-white" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+              url('assets/images/slide1.jpg') center/cover no-repeat;height: 90vh;">
+          <div class="container">
+            <h1 class="display-4 fw-bold">جاهز <span class="success">للنجاح</span> ؟</h1>
+            <p class="lead mb-4">تعلّم التؤوريا خطوة بخطوة</p>
+            <a href="#" class="btn btn-success btn-lg px-4">ابدأ معنا</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="carousel-item">
+        <div class="hero d-flex align-items-center text-center text-white" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+              url('assets/images/slide2.jpg') center/cover no-repeat;height: 90vh;">
+          <div class="container">
+            <h1 class="display-4 fw-bold">تعلم إشارات <span class="success">المرور</span></h1>
+            <p class="lead mb-4">بأبسط الطرق وبأمثلة عملية 🚦</p>
+            <a href="#" class="btn btn-success btn-lg px-4">تعلّم الإشارات</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="carousel-item">
+        <div class="hero d-flex align-items-center text-center text-white" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+              url('assets/images/slide3.webp') center/cover no-repeat;height: 90vh;">
+          <div class="container">
+            <h1 class="display-4 fw-bold">استعد للاختبار</h1>
+            <p class="lead mb-4">نساعدك على الفهم وليس الحفظ ✨</p>
+            <a href="#" class="btn btn-success btn-lg px-4">اختبر نفسك</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+  <!--Hero Section with Slider End-->
+</div>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
