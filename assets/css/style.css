@@ -3,3 +3,48 @@
   color: #198754;
   text-shadow: black 3px 4px;
 }
+/*Contact Section Start*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+body{
+    font-family: 'Poppins', sans-serif;
+
+}
+.conatiner-section{
+    background-color: #198754;
+    height: 50vh !important;
+    width: 100% !important;
+    max-width: 100% !important;
+
+}
+.row{
+    background-color: white;
+    margin-top: -300px !important;
+    border: solid 5px black;
+}
+.bi{
+    font-size: 60px !important;
+}
+.bi:hover{
+    color: #198754 !important;
+    cursor: pointer !important;
+}
+.contact-details{
+    font-size: 25px !important;
+    font-weight: 600 !important;
+}
+
+.btn-primary{
+    background-color: #198754 !important;
+    border: #198754 !important;
+}
+@media only screen and (max-width: 600px) {
+   .form-control{
+    width: 100% !important;
+   }
+   .row>* {
+    padding-left: 0 !important;
+}
+
+  }
+/*Contact Section End*/
