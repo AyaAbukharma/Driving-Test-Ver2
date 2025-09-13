@@ -15,6 +15,7 @@
  <div class="container" dir="rtl">
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
   <div class="container-fluid">
+    <button id="toggleMode" class="btn btn-outline-light ms-2">🌙</button>
     <a class="navbar-brand" href="#">التؤوريا</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -66,10 +67,10 @@
      <div class="card-header bg-dark text-white text-center py-3">
         <h1 class="h3 mb-0">تواصل معنا اذا واجهتك مشكلة</h1>
       </div>
-    <div class="row row-cols-1 row-cols-md-2 g-4 p-5 shadow row-bord">
+    <div class="row row-cols-1 row-cols-md-2 g-4 p-5 shadow row-bord aya">
         <div class="col">
             <h3>لأي استفسار عن اختبارات القيادة أو خدمات الموقع</h3>
-            <form>
+            <form id="contactForm">
                 <div class="mb-3 mt-5">
                     <label for="exampleFormControlInput1" class="form-label">أدخل اسمك</label>
                     <input type="text" class="form-control" id="exampleFormControlInput1" >
@@ -90,19 +91,19 @@
         <div class="col">
             <div class="mb-3 d-flex ">
                 <i class="bi bi-geo-alt-fill"></i>
-                <p class="ms-4"><span class="contact-details">العنوان : </span> <br> الضفة الغربية - طولكرم "شويكة"</p>
+                <h5 class="ms-4"><span class="contact-details">العنوان : </span> <br> الضفة الغربية - طولكرم "شويكة"</p>
             </div>
             <div class="mb-3 d-flex ">
                 <i class="bi bi-envelope-check-fill"></i>
-                <p class="ms-4"><span class="contact-details">الايميل : </span> <br> ayabassam@gmail.com </p>
+                <h5 class="ms-4"><span class="contact-details">الايميل : </span> <br> ayabassam@gmail.com </h5>
             </div>
             <div class="mb-3 d-flex ">
                 <i class="bi bi-phone-vibrate-fill"></i>
-                <p class="ms-4"><span class="contact-details">رقم التواصل : </span> <br> +972 598126432</p>
+                <h5 class="ms-4"><span class="contact-details">رقم التواصل : </span> <br> +972 598126432</h5>
             </div>
             <div class="mb-3 d-flex ">
                 <i class="bi bi-facebook"></i>
-                <p class="ms-4"><span class="contact-details">موقعنا  : </span> <br> www.facebook.com </p>
+                <h5 class="ms-4"><span class="contact-details">موقعنا  : </span> <br> www.facebook.com </h5>
             </div>
         </div>
       
@@ -111,6 +112,7 @@
    
   <!--Contact section End-->
   <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>
