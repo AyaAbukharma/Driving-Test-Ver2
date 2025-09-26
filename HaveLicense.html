@@ -7,6 +7,49 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+ .flip-card {
+      background: transparent;
+      perspective: 1000px;
+      cursor: pointer;
+      height: 350px;
+    }
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 15px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .flip-card-front {
+      background-color: #fff;
+      border: 2px solid #198754;
+      color: #198754;
+    }
+    .flip-card-back {
+      background-color: #198754;
+      color: #fff;
+      transform: rotateY(180deg);
+    }
+  </style>
+
 </head>
 <body>
   <!--Navbar Section Start-->
@@ -22,8 +65,7 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="index.html">الرئيسية</a>
         </li>
-
-
+       
      <li class="nav-item dropdown">
        <a class="nav-link dropdown-toggle" href="study.html" role="button">
       دراسة التؤوريا
@@ -34,8 +76,6 @@
        <li><a class="dropdown-item" href="signInStreet.html">اشارات المرور مع رسم توضيحي</a></li>
        </ul>
     </li>
-
-
         
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -49,7 +89,7 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="HaveLicense.html">الحصول على الرخصة</a>
+          <a class="nav-link" href="#">الحصول على الرخصة</a>
         </li>
          <li class="nav-item">
           <a class="nav-link" href="contact.html">اتصل بنا</a>
@@ -65,69 +105,81 @@
  </div>
   <!--Navbar Section End-->
 
-  <!--Hero Section with Slider Start-->
   <div class="container">
-  <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
+      <div class="conatiner-section">
+      <h1 class="animate__animated animate__slideInUp"> احصل <span>عليها</span></h1>
+      </div>
+   </div> 
 
-      <!-- Slide 1 -->
-      <div class="carousel-item active">
-        <div class="hero d-flex align-items-center text-center text-white" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-              url('assets/images/slide1.jpg') center/cover no-repeat;height: 90vh;">
-          <div class="container">
-            <h1 class="display-4 fw-bold animate__animated animate__zoomIn">جاهز <span class="success">للنجاح</span> ؟</h1>
-            <p class="lead mb-4">تعلّم التؤوريا خطوة بخطوة</p>
-            <a href="study.html" class="btn btn-success btn-lg px-4">ابدأ معنا</a>
+<div class="container py-5">
+  <div class="row g-4">
+    <!-- بطاقة 1 -->
+    <div class="col-12 col-md-6 col-lg-3">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            الفحص الطبي
+          </div>
+          <div class="flip-card-back">
+            الفحص الطبي هو الخطوة الأولى بعد عمل المعاملة في مدرسة السياقة، 
+            ويمكن التقدم للفحص أيام الأحد والاثنين والخميس.
           </div>
         </div>
       </div>
-
-      <!-- Slide 2 -->
-      <div class="carousel-item">
-        <div class="hero d-flex align-items-center text-center text-white" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-              url('assets/images/slide2.jpg') center/cover no-repeat;height: 90vh;">
-          <div class="container">
-            <h1 class="display-4 fw-bold animate__animated animate__fadeInTopLeft">تعلم إشارات <span class="success">المرور</span></h1>
-            <p class="lead mb-4">بأبسط الطرق وبأمثلة عملية 🚦</p>
-            <a href="study.html" class="btn btn-success btn-lg px-4">تعلّم الإشارات</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slide 3 -->
-      <div class="carousel-item">
-        <div class="hero d-flex align-items-center text-center text-white" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-              url('assets/images/slide3.webp') center/cover no-repeat;height: 90vh;">
-          <div class="container">
-            <h1 class="display-4 fw-bold animate__animated animate__fadeInBottomRight">استعد <span class="success">للاختبار</span></h1>
-            <p class="lead mb-4">نساعدك على الفهم وليس الحفظ ✨</p>
-            <a href="#" class="btn btn-success btn-lg px-4">اختبر نفسك</a>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <div class="hero d-flex align-items-center text-center text-white" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-              url('assets/images/contactUs.jpg') center/cover no-repeat;height: 90vh;">
-          <div class="container">
-            <h1 class="display-4 fw-bold animate__animated animate__slideInDown">تواصل <span class="success">معنا</span></h1>
-            <p class="lead mb-4">للاستفسار عن أسئلتك</p>
-            <a href="contact.html" class="btn btn-success btn-lg px-4"> اتصل بنا</a>
-          </div>
-        </div>
-      </div>
-
     </div>
 
-    <!-- Controls -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" ></span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon"></span>
-    </button>
+    <!-- بطاقة 2 -->
+    <div class="col-12 col-md-6 col-lg-3">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            الفحص النظري (التؤوريا)
+          </div>
+          <div class="flip-card-back">
+            امتحان التؤوريا يتكون من 30 سؤال. النجاح يبدأ من 25 فأكثر.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- بطاقة 3 -->
+    <div class="col-12 col-md-6 col-lg-3">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            الفحص العملي
+          </div>
+          <div class="flip-card-back">
+            الفحص العملي يتم بعد النجاح في التؤوريا. 
+            يتضمن فحص القيادة في الشوارع العامة.
+          </div>
+        </div>
+      </div>
+    </div>
+
+ <div class="col-12 col-md-6 col-lg-3">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            الفحص الطبي
+          </div>
+          <div class="flip-card-back">
+            الفحص الطبي هو الخطوة الأولى بعد عمل المعاملة في مدرسة السياقة، 
+            ويمكن التقدم للفحص أيام الأحد والاثنين والخميس.
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
   </div>
-  <!--Hero Section with Slider End-->
 </div>
+   
+
+
+
   <script src="assets/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="assets/js/main.js"></script>

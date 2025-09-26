@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" data-bs-theme="light">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,7 +30,7 @@
        <ul class="dropdown-menu">
        <li><a class="dropdown-item" href="book.html" target="_blank">كتاب التؤوريا</a></li>
        <li><a class="dropdown-item" href="sign.html">اشارات المرور</a></li>
-       <li><a class="dropdown-item" href="signInStreet.html">اشارات المرور مع رسم توضيحي</a></li>
+       <li><a class="dropdown-item" href="#">اشارات المرور مع رسم توضيحي</a></li>
        </ul>
     </li>
         
@@ -61,32 +61,37 @@
 </nav>
  </div>
   <!--Navbar Section End-->
-
-  <div class="container">
+<div class="container">
       <div class="conatiner-section">
-      <h1 class="animate__animated animate__slideInUp">  اشارات <span>المرور</span> </h1>
+      <h1 class="animate__animated animate__slideInUp"> على <span>الطرقات</span> </h1>
       </div>
-   </div> 
-
- <div class="container my-5">
-  <h2 class="text-center mb-4">تعلم إشارات المرور</h2>
-
-  <div class="d-flex flex-wrap justify-content-center gap-2">
-    <a href="#warning"><button class="btn btn-success btn-lg section-btn" data-section="warning">إشارات التحذير</button></a>
-    <a href="#guidance"><button class="btn btn-success btn-lg section-btn" data-section="guidance">إشارات الإرشاد</button></a>
-   <a href="#information"><button class="btn btn-success btn-lg section-btn" data-section="information">إشارات الاستعلامات</button></a>
-    <a href="#road"><button class="btn btn-success btn-lg section-btn" data-section="road">الإشارات المرسومة على سطح الطريق</button></a>
-    <a href="#lights"><button class="btn btn-success btn-lg section-btn" data-section="lights">الآلات الضوئية</button></a>
-    <a href="#helper"><button class="btn btn-success btn-lg section-btn" id="Help" data-section="helper">الإشارات المساعدة</button></a> 
-  </div>
 </div>
-<div class="container my-5" id="sectionContent">
-   <!--هون بدي احقن من الجافا سكربت-->
+<div class="container my-5">
+    <div class="card shadow-lg border-0">
+        <div class="card-header bg-dark text-white text-center py-3">
+            <h2 class="h3 mb-0">دليلك في الفهم </h2>
+        </div>
+        <div class="card-body p-4 text-center">
+            <div class="iframe-container" style="position: relative; overflow: hidden; width: 100%; padding-top: 56.25%;">
+                <iframe 
+                    src="https://drive.google.com/file/d/1i3CAX1GvZ-0rBGk8HCtdD77rC0vwGdyU/preview" 
+                    frameborder="0"
+                    allowfullscreen
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                </iframe>
+            </div>
+
+            <a 
+                class="btn btn-success btn-lg mt-4" 
+                href="https://drive.google.com/uc?export=download&id=1i3CAX1GvZ-0rBGk8HCtdD77rC0vwGdyU" 
+                target="_blank">
+                📥 تحميل الدليل التعليمي PDF
+            </a>
+        </div>
+    </div>
 </div>
 
-
-  <script src="assets/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+     <script src="assets/js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>

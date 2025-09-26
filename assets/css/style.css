@@ -1,8 +1,30 @@
 
+/*Navbar Section start*/
 .success{
   color: #198754;
   text-shadow: black 3px 4px;
 }
+
+/* إخفاء القائمة بشكل افتراضي */
+.nav-item .dropdown-menu {
+  display: block;       /* مهم عشان نتحكم بالأنيميشن */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px); /* تبدا نازلة شوي */
+  transition: all 0.3s ease;  /* مدة الحركة */
+  position: absolute;   /* عشان ما تأثر عالتصميم */
+}
+
+/* لما أمرر الماوس على العنصر */
+.nav-item.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0); /* ترجع لمكانها الطبيعي */
+}
+
+/*Navbar Section End*/
+
+
 /*Mode Start*/
 
 /*Mode End*/

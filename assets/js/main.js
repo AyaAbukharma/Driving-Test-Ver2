@@ -35,10 +35,8 @@
 
 
     /*Sign Section Start*/
-
-const sectionContent = document.getElementById('sectionContent');
-
 // نربط الأزرار بالأحداث
+//console.log(document.querySelectorAll('.section-btn'));
 document.querySelectorAll('.section-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const section = btn.getAttribute('data-section'); // نجيب اسم القسم
@@ -47,8 +45,1280 @@ document.querySelectorAll('.section-btn').forEach(btn => {
   });
 });
 function loadSection(section){
+  if(section === 'warning'){
+    sectionContent.innerHTML = `
+  <div class="container text-center my-5" id ="warning">
+  <h2 class="mb-4">  شاخصات (إشارات) التحذير</h2>
+  <div class="row g-4">
 
-  if(section === 'road'){
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+        <p><span>أ-1</span></p>
+        <img src="assets/images/Warning/1.jpg" alt="طريق وعرة أو مشوشة">
+        <p>طريق وعرة أو مشوشة</p>
+        
+        </div>
+      </div>
+    </div>
+
+ <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+        <p><span>أ-2</span></p>
+       <img src="assets/images/Warning/2.jpg" alt="انعطاف حاد إلى اليسار">
+        <p>انعطاف حاد إلى اليسار</p>
+        </div>
+      </div>
+    </div>
+
+
+    
+ <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+        <p><span>أ-3</span></p>
+        <img src="assets/images/Warning/3.jpg" alt="انعطاف حاد إلى اليمين">
+        <p>انعطاف حاد إلى اليمين</p>
+        </div>
+      </div>
+    </div>
+
+
+
+    
+ <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+       <p><span>أ-5</span></p>
+        <img src="assets/images/Warning/4.jpg" alt="انعطاف شديد الالتواء نحو اليمين">
+        <p>انعطاف شديد الالتواء نحو اليمين</p>
+        </div>
+      </div>
+    </div>
+
+
+    
+ <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+        <p><span>أ-7</span></p>
+        <img src="assets/images/Warning/5.jpg" alt="انعطاف إلى اليمين وثم إلى اليسار	">
+        <p>انعطاف إلى اليمين وثم إلى اليسار	</p>
+        </div>
+      </div>
+    </div>
+
+
+    
+ <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+       <p><span>أ-8</span></p>
+        <img src="assets/images/Warning/6.jpg" alt="طريق ملتوية">
+        <p>طريق ملتوية</p>
+        </div>
+      </div>
+    </div>
+
+
+    
+ <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+        <p><span>أ-9</span></p>
+        <img src="assets/images/Warning/7.jpg" alt="الطريق آخذة في الضيق">
+        <p>الطريق آخذة في الضيق</p>
+        </div>
+      </div>
+    </div>
+
+
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+        <p><span>أ-10</span></p>
+        <img src="assets/images/Warning/8.jpg" alt="جسر ضيق">
+        <p>جسر ضيق</p>
+        </div>
+      </div>
+    </div>
+
+
+    
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+        <p><span>أ-11</span></p>
+        <img src="assets/images/Warning/9.jpg" alt="أشغال على الطريق">
+        <p>أشغال على الطريق</p>
+        </div>
+      </div>
+    </div>
+
+
+
+    
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+         <p><span>أ-12</span></p>
+        <img src="assets/images/Warning/10.jpg" alt="مفترق تقاطع طرق	">
+        <p>مفترق تقاطع طرق</p>
+        </div>
+      </div>
+    </div>
+
+
+    
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+        <p><span>أ-14</span></p>
+        <img src="assets/images/Warning/11.jpg" alt="مفترق تفرع طرق إلى اليمين	">
+        <p>مفترق تفرع طرق إلى اليمين	</p>
+        </div>
+      </div>
+    </div>
+
+
+    
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+         <p><span>أ-15</span></p>
+        <img src="assets/images/Warning/12.jpg" alt="مفترق تفرع طرق إلى اليمين والى اليسار">
+        <p>مفترق تفرع طرق إلى اليمين والى اليسار</p>
+        </div>
+      </div>
+    </div>
+
+
+    
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+        <p><span>أ-17</span></p>
+        <img src="assets/images/Warning/13.jpg" alt=" مفترق تفرعات: نحو اليمين وثم نحو اليسار	">
+        <p>مفترق تفرعات: نحو اليمين وثم نحو اليسار	</p>
+        </div>
+      </div>
+    </div>
+
+
+
+    
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+         <p><span>أ-18</span></p>
+        <img src="assets/images/Warning/14.jpg" alt=" حركة سير دائرية على بعد 50-150 متر">
+        <p>حركة سير دائرية على بعد 50-150 متر	</p>
+        </div>
+      </div>
+    </div>
+
+
+
+    
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+         <p><span>أ-19</span></p>
+        <img src="assets/images/Warning/15.jpg" alt=" آلة ضوئية على بعد 50-150 متر">
+        <p>آلة ضوئية على بعد 50-150 متر</p>
+        </div>
+      </div>
+    </div>
+
+
+    
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+        <p><span>أ-20</span></p>
+        <img src="assets/images/Warning/16.jpg" alt=" اندماج شارع فيه حق الأولوية مع طريق جانبية من اليمين
+(ممنوع الاستدارة إلى الطريق الجانبية)">
+        <p> اندماج شارع فيه حق الأولوية مع طريق جانبية من اليمين
+(ممنوع الاستدارة إلى الطريق الجانبية)</p>
+        </div>
+      </div>
+    </div>
+
+
+    
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+         <p><span>أ-22</span></p>
+        <img src="assets/images/Warning/17.jpg" alt=" اندماج مع شارع فيه حق الأولوية
+(ممنوع الاستدارة إلى اليسار)">
+        <p> اندماج مع شارع فيه حق الأولوية
+(ممنوع الاستدارة إلى اليسار)</p>
+        </div>
+      </div>
+    </div>
+
+
+    
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+        <p><span>أ-24</span></p>
+        <img src="assets/images/Warning/18.jpg" alt=" اكتظاظ في حركة السير أمامك">
+        <p> اكتظاظ في حركة السير أمامك</p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+         <p><span>أ-25</span></p>
+        <img src="assets/images/Warning/19.jpg" alt=" ملتقى سكة حديد	">
+        <p> ملتقى سكة حديد	</p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+        <p><span>أ-28</span></p>
+        <img src="assets/images/Warning/20.jpg" alt=" الاقتراب من ملتقى سكة حديد على بعد 250م	">
+        <p>الاقتراب من ملتقى سكة حديد على بعد 250م	</p>
+        </div>
+      </div>
+    </div>
+
+
+    
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <p><span>أ-29</span></p>
+        <img src="assets/images/Warning/21.jpg" alt="الاقتراب من ملتقى سكة حديد على بعد 170م">
+        <p>  الاقتراب من ملتقى سكة حديد على بعد 170م	</p>
+        </div>
+      </div>
+    </div>
+
+
+    
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+         <p><span>أ-30</span></p>
+        <img src="assets/images/Warning/22.jpg" alt="الاقتراب من ملتقى سكة حديد على بعد 100م">
+        <p>الاقتراب من ملتقى سكة حديد على بعد 100م</p>
+        </div>
+      </div>
+    </div>
+
+
+    
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <p><span>أ-32</span></p>
+        <img src="assets/images/Warning/23.jpg" alt="مكان ملتقى سكة حديد - أكثر من خط واحد على بعد 10م	">
+        <p>مكان ملتقى سكة حديد - أكثر من خط واحد على بعد 10م	</p>
+        </div>
+      </div>
+    </div>
+
+
+    
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+         <p><span>أ-33</span></p>
+        <img src="assets/images/Warning/24.jpg" alt="أمامك إشارة"قف>
+        <p>أمامك إشارة قف</p>
+        </div>
+      </div>
+    </div>
+
+
+    
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+        <p><span>أ-34</span></p>
+        <img src="assets/images/Warning/25.jpg" alt="منحدر خطر
+(مع ذكر نسبة الانحدار أو بدونها)">
+        <p>منحدر خطر
+(مع ذكر نسبة الانحدار أو بدونها)</p>
+        </div>
+      </div>
+    </div>
+
+
+    
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+         <p><span>أ-35</span></p>
+        <img src="assets/images/Warning/26.jpg" alt="  خطر التزحلق		">
+        <p>   خطر التزحلق		</p>
+        </div>
+      </div>
+    </div>
+
+
+    
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+         <p><span>أ-36</span></p>
+        <img src="assets/images/Warning/27.jpg" alt=" أمامك ممر للمشاة	">
+        <p>  أمامك ممر للمشاة	</p>
+        </div>
+      </div>
+    </div>
+
+
+    
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+        <p><span>أ-37</span></p>
+        <img src="assets/images/Warning/28.jpg" alt=" مشاة بالقرب من المكان		">
+        <p>  مشاة بالقرب من المكان		</p>
+        </div>
+      </div>
+    </div>
+
+
+    
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+         <p><span>أ-38</span></p>
+        <img src="assets/images/Warning/29.jpg" alt=" أمامك حركة سير بالاتجاهين
+(توضع على بداية المقطع)">
+        <p> أمامك حركة سير بالاتجاهين
+(توضع على بداية المقطع)	</p>
+        </div>
+      </div>
+    </div>
+
+
+    
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+         <p><span>أ-39</span></p>
+        <img src="assets/images/Warning/30.jpg" alt=" ضوضاء طائرات على ارتفاع منخفض	">
+        <p>   ضوضاء طائرات على ارتفاع منخفض	</p>
+        </div>
+      </div>
+    </div>
+
+
+    
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+        <p><span>أ-40</span></p>
+        <img src="assets/images/Warning/31.jpg" alt=" مكان خطر لم تُحدد له شاخصة خاصة
+(يُذكر نوع الخطر على الشاخصة أ-43)	">
+        <p> مكان خطر لم تُحدد له شاخصة خاصة
+(يُذكر نوع الخطر على الشاخصة أ-43)</p>
+        </div>
+      </div>
+    </div>
+
+
+    
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+         <p><span>أ-34</span></p>
+        <img src="assets/images/Warning/32.jpg" alt=" شاخصة للتحذير والإرشاد والمنع- للإعلام		">
+        <p> شاخصة للتحذير والإرشاد والمنع- للإعلام	</p>
+        </div>
+      </div>
+    </div>
+
+
+    
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+        <p><span>أ-46</span></p>
+        <img src="assets/images/Warning/33.jpg" alt=" مطبات أمامك	">
+        <p>  مطبات أمامك	</p>
+        </div>
+      </div>
+    </div>
+
+
+    
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+         <p><span>أ-40</span></p>
+        <img src="assets/images/Warning/34.jpg" alt=" مركبة زراعية تقطع الطريق">
+        <p> مركبة زراعية تقطع الطريق	</p>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</div>
+
+
+
+
+    `;
+  }else if(section === 'guidance'){
+    sectionContent.innerHTML = `
+  <div class="container text-center my-5" id ="guidance">
+  <h2 class="mb-4">  شاخصات (إشارات)الإرشاد</h2>
+  <div class="row g-4">
+
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+        <p><span>ب-1</span></p>
+        <img src="assets/images/guidance/35.jpg" alt="مغلق أمام جميع المركبات بما في ذلك عربات اليد (من كلا الاتجاهين)	">
+        <p>مغلق أمام جميع المركبات بما في ذلك عربات اليد (من كلا الاتجاهين)	</p>
+        
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+       <p><span>ب-2</span></p>
+        <img src="assets/images/guidance/36.jpg" alt="مغلق أمام جميع المركبات بما في ذلك عربات اليد (شارع باتجاه واحد)	">
+        <p>مغلق أمام جميع المركبات بما في ذلك عربات اليد (شارع باتجاه واحد)	</p>
+        
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+      <p><span>ب-3</span></p>
+        <img src="assets/images/guidance/37.jpg" alt="ممنوع الاستدارة نحو اليسار">
+        <p>ممنوع الاستدارة نحو اليسار</p>
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+      <p><span>ب-6</span></p>
+        <img src="assets/images/guidance/38.jpg" alt="ممنوع الاستدارة إلى اليسار للسير في الاتجاه المعاكس	">
+        <p>ممنوع الاستدارة إلى اليسار للسير في الاتجاه المعاكس	</p>
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+       <p><span>ب-7</span></p>
+        <img src="assets/images/guidance/39.jpg" alt="أعط حق الأولوية في الطريق الضيقة لحركة السير المقابلة	">
+        <p>أعط حق الأولوية في الطريق الضيقة لحركة السير المقابلة	</p>
+        
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+        <p><span>ب-8</span></p>
+        <img src="assets/images/guidance/40.jpg" alt="ممنوع التجاوز أو العبور عن مركبة ميكانيكية تسير على أكثر من عجلتين في نفس اتجاه السير">
+        <p> ممنوع التجاوز أو العبور عن مركبة ميكانيكية تسير على أكثر من عجلتين في نفس اتجاه السير</p>
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+        <p><span>ب-9</span></p>
+        <img src="assets/images/guidance/41.jpg" alt="نهاية مقطع الطريق الذي يسري عليه قيد التجاوز	">
+        <p> نهاية مقطع الطريق الذي يسري عليه قيد التجاوز	</p>
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+      <p><span>ب-10</span></p>
+        <img src="assets/images/guidance/42.jpg" alt="لا يجوز لمركبة تجارية يزيد وزنها الإجمالي المسموح به عن 4 أطنان أن تتجاوز أو أن تمر عن مركبة ميكانيكية تسير على اكثر من عجلتين	">
+        <p>لا يجوز لمركبة تجارية يزيد وزنها الإجمالي المسموح به عن 4 أطنان أن تتجاوز أو أن تمر عن مركبة ميكانيكية تسير على اكثر من عجلتين	</p>
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+       <p><span>ب-11</span></p>
+        <img src="assets/images/guidance/43.jpg" alt="نهاية مقطع الطريق الذي يسري عليه قيد التجاوز">
+        <p>نهاية مقطع الطريق الذي يسري عليه قيد التجاوز</p>
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+      <p><span>ب-12</span></p>
+        <img src="assets/images/guidance/44.jpg" alt="ممنوع دخول المركبات الميكانيكية باستثناء الدراجة النارية بدون عربة جانبية	">
+        <p>ممنوع دخول المركبات الميكانيكية باستثناء الدراجة النارية بدون عربة جانبية	</p>
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+        <p><span>ب-13</span></p>
+        <img src="assets/images/guidance/45.jpg" alt="ممنوع دخول الدراجات النارية	">
+        <p>ممنوع دخول الدراجات النارية	</p>
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+        <p><span>ب-14</span></p>
+        <img src="assets/images/guidance/46.jpg" alt="ممنوع الدخول جميع المركبات الميكانيكية">
+        <p>ممنوع الدخول جميع المركبات الميكانيكية</p>
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+        <p><span>ب-15</span></p>
+        <img src="assets/images/guidance/47.jpg" alt="ممنوع دخول المركبات الميكانيكية التجارية التي يزيد وزنها الإجمالي المسموح به عما هو مسجل في الشاخصة	">
+        <p>ممنوع دخول المركبات الميكانيكية التجارية التي يزيد وزنها الإجمالي المسموح به عما هو مسجل في الشاخصة	</p>
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+        <p><span>ب-16</span></p>
+        <img src="assets/images/guidance/48.jpg" alt="ممنوع دخول جميع المركبات التي يزيد وزنها الإجمالي المسموح به عما هو مسجل في الشاخصة	">
+        <p>ممنوع دخول جميع المركبات التي يزيد وزنها الإجمالي المسموح به عما هو مسجل في الشاخصة	</p>
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+       <p><span>ب-17</span></p>
+        <img src="assets/images/guidance/49.jpg" alt="ممنوع دخول مركبة وحمولتها والتي يزيد عرضها عما هو مسجل في الشاخصة">
+        <p>ممنوع دخول مركبة وحمولتها والتي يزيد عرضها عما هو مسجل في الشاخصة</p>
+        </div>
+      </div>
+    </div>
+
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+      <p><span>ب-18</span></p>
+        <img src="assets/images/guidance/50.jpg" alt="ممنوع دخول مركبة وحمولتها والتي يزيد ارتفاعها عما هو مسجل في الشاخصة	">
+        <p>ممنوع دخول مركبة وحمولتها والتي يزيد ارتفاعها عما هو مسجل في الشاخصة	</p>
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+      <p><span>ب-20</span></p>
+        <img src="assets/images/guidance/51.jpg" alt="سرعة خاصة : ممنوع السير بسرعة تزيد عن عدد الكم/ساعة المسجل في الشاخصة	">
+        <p>سرعة خاصة : ممنوع السير بسرعة تزيد عن عدد الكم/ساعة المسجل في الشاخصة	</p>
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+      <p><span>ب-21</span></p>
+        <img src="assets/images/guidance/52.jpg" alt="نهاية المقطع الذي فيه السرعة الخاصة">
+        <p>نهاية المقطع الذي فيه السرعة الخاصة</p>
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+      <p><span>ب-24</span></p>
+        <img src="assets/images/guidance/53.jpg" alt="الدخول إلى طريق أو طرق بلدية	">
+        <p>الدخول إلى طريق أو طرق بلدية	</p>
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+        <p><span>ب-25</span></p>
+        <img src="assets/images/guidance/54.jpg" alt="نهاية الطريق أو الطرق البلدية	">
+        <p>نهاية الطريق أو الطرق البلدية</p>
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+      <p><span>ب-28</span></p>
+        <img src="assets/images/guidance/55.jpg" alt="ممنوع وقوف مركبة في الطريق في الجهة التي أُقيمت فيها الشاخصة">
+        <p>ممنوع وقوف مركبة في الطريق في الجهة التي أُقيمت فيها الشاخصة</p>
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+      <p><span>ب-29</span></p>
+        <img src="assets/images/guidance/56.jpg" alt="ممنوع الوقوف والتوقف في الطريق في الجهة التي أُقيمت فيها الشاخصة إلا لتنفيذ أمر قانوني	">
+        <p>ممنوع الوقوف والتوقف في الطريق في الجهة التي أُقيمت فيها الشاخصة إلا لتنفيذ أمر قانوني	</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+       <p><span>ب-30</span></p>
+        <img src="assets/images/guidance/57.jpg" alt="ممنوع وقوف مركبة تجارية يزيد وزنها الإجمالي المسموح به عن 10000كغم في المنطقة التي أُقيمت في بدايتها الشاخصة	">
+        <p>ممنوع وقوف مركبة تجارية يزيد وزنها الإجمالي المسموح به عن 10000كغم في المنطقة التي أُقيمت في بدايتها الشاخصة	</p>
+        </div>
+      </div>
+    </div>
+
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+        <p><span>ب-31</span></p>
+        <img src="assets/images/guidance/58.jpg" alt="نهاية المنطقة التي يُمنع فيها وقوف مركبة تجارية يزيد وزنها الإجمالي المسموح به عن 10000كغم">
+        <p>نهاية المنطقة التي يُمنع فيها وقوف مركبة تجارية يزيد وزنها الإجمالي المسموح به عن 10000كغم</p>
+      
+        </div>
+      </div>
+    </div>
+
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+         <p><span>ب-32</span></p>
+        <img src="assets/images/guidance/59.jpg" alt="نهاية المنطقة التي يُمنع فيها الوقوف أو التوقف
+(إلغاء الشاخصتين رقم : ب-28 و ب-29)	">
+        <p> نهاية المنطقة التي يُمنع فيها الوقوف أو التوقف
+(إلغاء الشاخصتين رقم : ب-28 و ب-29)	</p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+       <p><span>ب-33</span></p>
+        <img src="assets/images/guidance/60.jpg" alt="الدخول إلى منطقة يحظر فيها دخول مركبة تعليم السواقة أثناء التعليم ما عدا الباص	">
+        <p>الدخول إلى منطقة يحظر فيها دخول مركبة تعليم السواقة أثناء التعليم ما عدا الباص	</p>
+        </div>
+      </div>
+    </div>
+
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+        <p><span>ب-34</span></p>
+        <img src="assets/images/guidance/61.jpg" alt="نهاية المنطقة التي يحظر فيها دخول مركبة تعليم السواقة أثناء التعليم">
+        <p>نهاية المنطقة التي يحظر فيها دخول مركبة تعليم السواقة أثناء التعليم</p>
+      
+        </div>
+      </div>
+    </div>
+
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+        <p><span>ب-35</span></p>
+        <img src="assets/images/guidance/62.jpg" alt="يجوز السفر في الشارع أو في المسلك للقطار الخفيف وللباص والصالون العمومي وللمركبات التي تنقل على الأقل عدد الركاب المذكور في الشاخصة	">
+        <p>يجوز السفر في الشارع أو في المسلك للقطار الخفيف وللباص والصالون العمومي وللمركبات التي تنقل على الأقل عدد الركاب المذكور في الشاخصة	</p>
+        </div>
+      </div>
+    </div>
+
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+       <p><span>ب-36</span></p>
+        <img src="assets/images/guidance/63.jpg" alt="أعطِ حق الأولوية لحركة السير في الطريق القاطعة أمامك	">
+        <p>أعطِ حق الأولوية لحركة السير في الطريق القاطعة أمامك	</p>
+      
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+      <p><span>ب-37</span></p>
+      <img src="assets/images/guidance/64.jpg" alt="قف !
+       وأعطِ حق الأولوية لحركة السير في الطريق القاطعة أمامك">
+        <p>قف !
+وأعطِ حق الأولوية لحركة السير في الطريق القاطعة أمامك</p>
+        </div>
+      </div>
+    </div>
+
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+       <p><span>ب-38</span></p>
+        <img src="assets/images/guidance/65.jpg" alt="قف !
+(شاخصة متنقلة)">
+        <p>قف !
+(شاخصة متنقلة)</p>
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+         <p><span>ب-39</span></p>
+        <img src="assets/images/guidance/66.jpg" alt="تقدم بحذر
+(شاخصة متنقلة)">
+        <p>تقدم بحذر
+(شاخصة متنقلة)</p>
+        </div>
+      </div>
+    </div>
+
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+      <p><span>ب-41</span></p>
+        <img src="assets/images/guidance/67.jpg" alt="سر إلى اليسار من أمام الشاخصة
+إذا كان السهم باللون الأصفر يدل على اتجاه السير للمواصلات العمومية فقط">
+        <p>سر إلى اليسار من أمام الشاخصة
+إذا كان السهم باللون الأصفر يدل على اتجاه السير للمواصلات العمومية فقط</p>
+     
+        </div>
+      </div>
+    </div>
+
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+       <p><span>ب-43</span></p>
+        <img src="assets/images/guidance/68.jpg" alt="سر إلى اليسار من خلف الشاخصة
+اذا كان السهم باللون الأصفر يدل على اتجاه السير للمواصلات العمومية فقط">
+        <p>سر إلى اليسار من خلف الشاخصة
+اذا كان السهم باللون الأصفر يدل على اتجاه السير للمواصلات العمومية فقط</p>
+        </div>
+      </div>
+    </div>
+
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+       <p><span>ب-44</span></p>
+        <img src="assets/images/guidance/69.jpg" alt="سر إلى الأمام (إذا كان السهم مائلاً فسر باتجاه السهم)
+إذا كان السهم باللون الأصفر يدل على اتجاه السير للمواصلات العمومية فقط">
+        <p>سر إلى الأمام (إذا كان السهم مائلاً فسر باتجاه السهم)
+إذا كان السهم باللون الأصفر يدل على اتجاه السير للمواصلات العمومية فقط</p>
+      
+        </div>
+      </div>
+    </div>
+
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+       <p><span>ب-46</span></p>
+        <img src="assets/images/guidance/70.jpg" alt="سر إلى اليسار أو إلى الأمام
+إذا كان السهم باللون الأصفر يدل على اتجاه السير للمواصلات العمومية فقط">
+        <p>سر إلى اليسار أو إلى الأمام
+إذا كان السهم باللون الأصفر يدل على اتجاه السير للمواصلات العمومية فقط</p>
+        </div>
+      </div>
+    </div>
+
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+       <p><span>ب-47</span></p>
+        <img src="assets/images/guidance/71.jpg" alt="سر إلى اليمين أو إلى اليسار
+إذا كان السهم باللون الأصفر يدل على اتجاه السير للمواصلات العمومية فقط">
+        <p>سر إلى اليمين أو إلى اليسار
+إذا كان السهم باللون الأصفر يدل على اتجاه السير للمواصلات العمومية فقط</p>
+        </div>
+      </div>
+    </div>
+
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+      <p><span>ب-48</span></p>
+        <img src="assets/images/guidance/72.jpg" alt="أعطِ حق الأولوية لحركة السير القاطعة طريقك والتي تسير حول الدوار واعبر الدوار من جانبه الأيمن">
+        <p>أعطِ حق الأولوية لحركة السير القاطعة طريقك والتي تسير حول الدوار واعبر الدوار من جانبه الأيمن</p>
+        </div>
+      </div>
+    </div>
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+       <p><span>ب-49</span></p>
+        <img src="assets/images/guidance/73.jpg" alt="يجوز عبور المكان الموسوم بهذه الشاخصة من اليمين أو من اليسار
+إذا كان السهم باللون الأصفر يدل على اتجاه السير للمواصلات العمومية فقط">
+        <p>يجوز عبور المكان الموسوم بهذه الشاخصة من اليمين أو من اليسار
+إذا كان السهم باللون الأصفر يدل على اتجاه السير للمواصلات العمومية فقط</p>
+     
+        </div>
+      </div>
+    </div>
+
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+       <p><span>ب-51</span></p>
+        <img src="assets/images/guidance/74.jpg" alt="اعبر المكان الموسوم بالشاخصة من جانبه الأيسر">
+        <p>اعبر المكان الموسوم بالشاخصة من جانبه الأيسر</p>
+        </div>
+      </div>
+    </div>
+
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+       <p><span>ب-52</span></p>
+        <img src="assets/images/guidance/75.jpg" alt="طريق للمركبات الميكانيكية فقط	">
+        <p>طريق للمركبات الميكانيكية فقط	</p>
+        </div>
+      </div>
+    </div>
+
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+      <p><span>ب-53</span></p>
+        <img src="assets/images/guidance/76.jpg" alt="طريق للمركبات الميكانيكية التي تستطيع ويجوز لها السير بسرعة لا تقل عن ما هو مسجل في الشاخصة بالكم/ساعة">
+        <p>طريق للمركبات الميكانيكية التي تستطيع ويجوز لها السير بسرعة لا تقل عن ما هو مسجل في الشاخصة بالكم/ساعة</p>
+        </div>
+      </div>
+    </div>
+
+
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+        <p><span>ب-54</span></p>
+        <img src="assets/images/guidance/77.jpg" alt="الدخول إلى طريق سريعة : ممنوع دخول المشاة والدراجات الهوائية والمركبات البطيئة وعربات اليد والحيوانات ولكل مركبة لا تستطيع ولا يجوز لها السير بالسرعة المذكورة في الشاخصة ب-53">
+        <p>الدخول إلى طريق سريعة : ممنوع دخول المشاة والدراجات الهوائية والمركبات البطيئة وعربات اليد والحيوانات ولكل مركبة لا تستطيع ولا يجوز لها السير بالسرعة المذكورة في الشاخصة ب-53</p>
+        </div>
+      </div>
+    </div>
+
+    
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+       <p><span>ب-55</span></p>
+        <img src="assets/images/guidance/78.jpg" alt="نهاية الطريق السريعة	">
+        <p>نهاية الطريق السريعة	</p>
+        </div>
+      </div>
+    </div>
+
+
+    
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+      <p><span>ب-57</span></p>
+        <img src="assets/images/guidance/79.jpg" alt="مكان إنزال واصعاد الركاب للصالون العمومي بدون انتظار">
+        <p>مكان إنزال واصعاد الركاب للصالون العمومي بدون انتظار</p>
+        </div>
+      </div>
+    </div>
+
+
+    
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+       <p><span>ب-58</span></p>
+        <img src="assets/images/guidance/80.jpg" alt="محطة صالون عمومي : ممنوع وقوف أو توقف أية مركبة أخرى باستثناء إنزال الركاب	">
+        <p>محطة صالون عمومي : ممنوع وقوف أو توقف أية مركبة أخرى باستثناء إنزال الركاب	</p>
+        </div>
+      </div>
+    </div>
+
+
+    
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+        <p><span>ب-59</span></p>
+        <img src="assets/images/guidance/81.jpg" alt="نهاية منطقة محطة الصالون العمومي	">
+        <p>نهاية منطقة محطة الصالون العمومي	</p>
+        </div>
+      </div>
+    </div>
+
+
+    
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+       <p><span>ب-60</span></p>
+        <img src="assets/images/guidance/82.jpg" alt="ممنوع دخول التراكتورات ومركبات العمل">
+        <p>ممنوع دخول التراكتورات ومركبات العمل</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+       <p><span>ب-61</span></p>
+        <img src="assets/images/guidance/83.jpg" alt="ممنوع دخول الحيوانات أو العربات التي تجرها الحيوانات	">
+        <p>ممنوع دخول الحيوانات أو العربات التي تجرها الحيوانات	</p>
+      
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+        <p><span>ب-62</span></p>
+        <img src="assets/images/guidance/84.jpg" alt="ممنوع دخول الدراجات الهوائية	">
+        <p>ممنوع دخول الدراجات الهوائية	</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+        <p><span>ب-63</span></p>
+        <img src="assets/images/guidance/85.jpg" alt="سبيل للدراجات الهوائية فقط">
+        <p>سبيل للدراجات الهوائية فقط</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+        <p><span>ب-63 أ</span></p>
+        <img src="assets/images/guidance/86.jpg" alt="سبيل للدراجات الهوائية وللمشاة فقط	">
+        <p>سبيل للدراجات الهوائية وللمشاة فقط	</p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+        <p><span>ب-63 ب	</span></p>
+        <img src="assets/images/guidance/87.jpg" alt="سبيلان منفردان للدراجات الهوائية وللمشاة فقط	">
+        <p>سبيلان منفردان للدراجات الهوائية وللمشاة فقط	</p>
+      
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+       <p><span>ب-64</span></p>
+        <img src="assets/images/guidance/88.jpg" alt="ممنوع دخول المشاة بما في ذلك طرف الطريق">
+        <p>ممنوع دخول المشاة بما في ذلك طرف الطريق</p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+       <p><span>ب-65</span></p>
+        <img src="assets/images/guidance/89.jpg" alt="سبيل للمشاة فقط	">
+        <p>سبيل للمشاة فقط	</p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+      <p><span>ب-66</span></p>
+        <img src="assets/images/guidance/90.jpg" alt="ممنوع دخول مركبة تنقل مواد خطرة والملزمة بوسم بموجب القانون">
+        <p>ممنوع دخول مركبة تنقل مواد خطرة والملزمة بوسم بموجب القانون</p>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
+
+    `;
+  }else if(section === 'information'){
+    sectionContent.innerHTML = `
+  <div class="container text-center my-5" id ="information">
+  <h2 class="mb-4">  شاخصات (إشارات) الاستعلامات</h2>
+  <div class="row g-4">
+
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+         <p><span>ج-1</span></p>
+        <img src="assets/images/information/91.jpg" alt="موقف للمركبات ، وإذا ذُكر نوع من المركبات في اللافتة التي تحت الشاخصة فيكون الموقف للمركبات المذكورة فقط .">
+        <p>موقف للمركبات ، وإذا ذُكر نوع من المركبات في اللافتة التي تحت الشاخصة فيكون الموقف للمركبات المذكورة فقط .</p>
+      
+        </div>
+      </div>
+    </div>
+
+    
+
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+         <p><span>ج-4</span></p>
+        <img src="assets/images/information/92.jpg" alt="طريق بدون مخرج">
+        <p>طريق بدون مخرج</p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+         <p><span>ج-5</span></p>
+        <img src="assets/images/information/93.jpg" alt="لك حق الأولوية في الطريق الضيقة بالنسبة لحركة السير من الاتجاه المعاكس">
+        <p>لك حق الأولوية في الطريق الضيقة بالنسبة لحركة السير من الاتجاه المعاكس</p>
+        </div>
+      </div>
+    </div>
+
+
+    
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+         <p><span>ج-6</span></p>
+          <img src="assets/images/information/94.jpg" alt="الدخول إلى مقطع طريق فيها حركة السير باتجاه السهم فقط (طريق ذات اتجاه واحد) وحتى المفترق القريب أو لغاية الشاخصة أ-38">
+        <p>الدخول إلى مقطع طريق فيها حركة السير باتجاه السهم فقط (طريق ذات اتجاه واحد) وحتى المفترق القريب أو لغاية الشاخصة أ-38</p>
+        </div>
+      </div>
+    </div>
+
+
+
+
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+        <p><span>ج-6 أ</span></p>
+        <img src="assets/images/information/95.jpg" alt="حركة السير باتجاه السهم الأبيض مسموحة لجميع المركبات ، أما المركبات التي سُمح له بالسير بموجب الشاخصة ب-35 فيجوز لها السير في الاتجاه المعاكس .">
+        <p>حركة السير باتجاه السهم الأبيض مسموحة لجميع المركبات ، أما المركبات التي سُمح له بالسير بموجب الشاخصة ب-35 فيجوز لها السير في الاتجاه المعاكس .</p>
+        </div>
+      </div>
+    </div>
+
+
+    
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <p><span>ج-7</span></p>
+        <img src="assets/images/information/96.jpg" alt="مكان عبور المشاة">
+        <p>مكان عبور المشاة</p>
+        </div>
+      </div>
+    </div>
+
+
+    
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+        <p><span>ج-28</span></p>
+        <img src="assets/images/information/97.jpg" alt="لافتة إرشاد قبل المفترق : تُظهر شكل المفترق . سهم عريض : طريق رئيسية - سهم رفيع : طريق ثانوية .">
+        <p>لافتة إرشاد قبل المفترق : تُظهر شكل المفترق . سهم عريض : طريق رئيسية - سهم رفيع : طريق ثانوية .</p>
+        </div>
+      </div>
+    </div>
+
+
+    
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+        <p><span>ج-29</span></p>
+        <img src="assets/images/information/98.jpg" alt="لافتة إرشاد قبل محول في طريق سريعة .">
+        <p>لافتة إرشاد قبل محول في طريق سريعة .</p>
+        </div>
+      </div>
+    </div>
+
+
+
+    
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+      <p><span>ج-38</span></p>
+        <img src="assets/images/information/99.jpg" alt="مكان وقوف لمركبة معاق - مشلول الأرجل">
+        <p>مكان وقوف لمركبة معاق - مشلول الأرجل</p>
+        </div>
+      </div>
+    </div>
+
+
+
+    
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+        <p><span>ج-39</span></p>
+        <img src="assets/images/information/100.jpg" alt="عدد المسالك في الشارع آخذ في التزايد">
+        <p>عدد المسالك في الشارع آخذ في التزايد</p>
+
+        </div>
+      </div>
+    </div>
+
+
+    
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+        <p><span>ج-40</span></p>
+        <img src="assets/images/information/101.jpg" alt="عدد المسالك في الشارع آخذ في التناقص">
+        <p>عدد المسالك في الشارع آخذ في التناقص</p>
+        </div>
+      </div>
+    </div>
+
+
+    
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+        <p><span>ج-44</span></p>
+        <img src="assets/images/information/102.jpg" alt="يجوز الوقوف على الرصيف كما هو موسوم في الشاخصة، وذلك للمركبات الخصوصية والخصوصية المزدوجة الاستعمال والمركبات التجارية التي لا يزيد وزنها الإجمالي المسموح به عن 2200كغم">
+        <p>يجوز الوقوف على الرصيف كما هو موسوم في الشاخصة، وذلك للمركبات الخصوصية والخصوصية المزدوجة الاستعمال والمركبات التجارية التي لا يزيد وزنها الإجمالي المسموح به عن 2200كغم</p>
+        </div>
+      </div>
+    </div>
+
+
+    
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+        <p><span>ج-45</span></p>
+        <img src="assets/images/information/103.jpg" alt="شارع مختلط">
+        <p>شارع مختلط</p>
+        </div>
+      </div>
+    </div>
+
+    
+    
+     <div class="col-md-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+        <p><span>ج-46</span></p>
+        <img src="assets/images/information/104.jpg" alt="نهاية الشارع المختلط">
+        <p>نهاية الشارع المختلط</p> 
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</div>
+
+    `;
+  }else if(section === 'road'){
   sectionContent.innerHTML = `
   <div class="container text-center my-5" id ="road">
   <h2 class="mb-4">الشاخصات (الإشارات) المرسومة على سطح الطريق</h2>
@@ -267,12 +1537,7 @@ function loadSection(section){
 </div>
 
     `;
-  }
-
-
-
-
-  else if(section === 'lights'){
+  }else if(section === 'lights'){
   sectionContent.innerHTML = `
   <div class="container text-center my-5" id ="lights">
   <h2 class="mb-4">الآلات الضوئية</h2>
@@ -509,7 +1774,7 @@ function loadSection(section){
 </div>
 
     `;
-  } else {
+  }else {
     sectionContent.innerHTML = `<h3 class="text-center text-muted">المحتوى لهذا القسم قيد الإنشاء</h3>`;
   }
 }
