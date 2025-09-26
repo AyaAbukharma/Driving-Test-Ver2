@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Torya</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -21,9 +23,6 @@
       transition: transform 0.8s;
       transform-style: preserve-3d;
     }
-    .flip-card:hover .flip-card-inner {
-      transform: rotateY(180deg);
-    }
     .flip-card-front, .flip-card-back {
       position: absolute;
       width: 100%;
@@ -31,6 +30,7 @@
       backface-visibility: hidden;
       border-radius: 12px;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
@@ -43,9 +43,18 @@
       border: 2px solid #198754;
       color: #198754;
     }
+    .flip-card-front i {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
     .flip-card-back {
       background-color: #198754;
       color: #fff;
+      transform: rotateY(180deg);
+      font-size: 16px;
+      font-weight: normal;
+    }
+    .flipped .flip-card-inner {
       transform: rotateY(180deg);
     }
   </style>
@@ -107,7 +116,7 @@
 
   <div class="container">
       <div class="conatiner-section">
-      <h1 class="animate__animated animate__slideInUp"> احصل <span>عليها</span></h1>
+      <h1 class="animate__animated animate__slideInUp"> الاجراءات</h1>
       </div>
    </div> 
 
@@ -115,14 +124,15 @@
   <div class="row g-4">
     <!-- بطاقة 1 -->
     <div class="col-12 col-md-6 col-lg-3">
-      <div class="flip-card">
+      <div class="flip-card" onclick="this.classList.toggle('flipped')">
         <div class="flip-card-inner">
           <div class="flip-card-front">
+            <i class="bi bi-heart-pulse"></i>
             الفحص الطبي
           </div>
           <div class="flip-card-back">
-            الفحص الطبي هو الخطوة الأولى بعد عمل المعاملة في مدرسة السياقة، 
-            ويمكن التقدم للفحص أيام الأحد والاثنين والخميس.
+          دائرة الصحة <br><br>
+          الفحص الطبي هو الخطوة الأولى بعد عمل المعاملة في مدرسة السياقة، ويمكن التقدم للفحص الطبي في دائرة الصحة أيام الأحد، الاثنين والخميس من الساعة 08:00 صباحاً إلى 10:30 صباحاً ويفضل الذهاب مبكراً قدر المستطاع، ويجب عدم تناول الفطور قبل الفحص لطلاب رخصة الشحن وما فوق
           </div>
         </div>
       </div>
@@ -130,13 +140,15 @@
 
     <!-- بطاقة 2 -->
     <div class="col-12 col-md-6 col-lg-3">
-      <div class="flip-card">
+      <div class="flip-card" onclick="this.classList.toggle('flipped')">
         <div class="flip-card-inner">
           <div class="flip-card-front">
+            <i class="bi bi-pc-display"></i>
             الفحص النظري (التؤوريا)
           </div>
           <div class="flip-card-back">
-            امتحان التؤوريا يتكون من 30 سؤال. النجاح يبدأ من 25 فأكثر.
+          دائرة السير <br><br>
+        بعد دراسة التؤوريا جيداً والتدرب على الامتحانات التدريبية للتؤوريا , يمكن التقدم لامتحان التؤوريا الرسمي في أي يوم من الأحد إلى الخميس ، وفي اليوم المحدد للامتحان يجب التواجد في الدائرة من الساعة 08:30 صباحاً وانتظار الدور.
           </div>
         </div>
       </div>
@@ -144,40 +156,42 @@
 
     <!-- بطاقة 3 -->
     <div class="col-12 col-md-6 col-lg-3">
-      <div class="flip-card">
+      <div class="flip-card" onclick="this.classList.toggle('flipped')">
         <div class="flip-card-inner">
           <div class="flip-card-front">
-            الفحص العملي
+            <i class="bi bi-car-front"></i>
+           الفحص العملي  (التيست)
           </div>
           <div class="flip-card-back">
-            الفحص العملي يتم بعد النجاح في التؤوريا. 
-            يتضمن فحص القيادة في الشوارع العامة.
+            دائرة السير <br><br>
+            الخطوة الأخيرة بعد اتقان المهارات الأساسية في القيادة هي التقدم لللإمتحان العملي في السياقة (التست)، ويمكن التقدم للتست الرسمي في اي يوم من من الأحد إلى الخميس بتعيين مسبق من خلال مدرسة تعليم السياقة، أما بخصوص وقت التست فيتم تحديده مسبقاً (ولا يعتبر موعد دقيق).
           </div>
         </div>
       </div>
     </div>
 
- <div class="col-12 col-md-6 col-lg-3">
-      <div class="flip-card">
+<!-- بطاقة 4 -->
+    <div class="col-12 col-md-6 col-lg-3">
+      <div class="flip-card" onclick="this.classList.toggle('flipped')">
         <div class="flip-card-inner">
           <div class="flip-card-front">
-            الفحص الطبي
+          <i class="bi bi-credit-card"></i>
+            الحصول على الرخصة 
           </div>
           <div class="flip-card-back">
-            الفحص الطبي هو الخطوة الأولى بعد عمل المعاملة في مدرسة السياقة، 
-            ويمكن التقدم للفحص أيام الأحد والاثنين والخميس.
-          </div>
+            دائرة السير <br><br>
+            بعد النجاح بالامتحان العملي (التست) يمكنك الحصول على رخصة السياقة من سلطة الترخيص (دائرة السير) في أي يوم من الأحد إلى الخميس من الساعة 08:00 صباحاً إلى 01:00 مساءً مع ضرورة احضار بطاقة الهوية الشخصية والذهاب شخصياً لاستلام الرخصة.          </div>
         </div>
       </div>
     </div>
+      <div class="card-header bg-dark text-white text-center py-3">
+        <h1 class="h3 mb-0">متطلبات الرخصة (خصوصي)</h1>
+        <button class="btn btn-outline-light mt-2 details">اظهار التفاصيل</button> 
+        <button class="btn btn-outline-light mt-2 price">سعر الدروس والتستات</button> 
 
-
-
-
+      </div>
   </div>
 </div>
-   
-
 
 
   <script src="assets/js/bootstrap.bundle.min.js"></script>

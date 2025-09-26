@@ -24,6 +24,7 @@
           Swal.fire({
             title: "تم الإرسال",
             text: "تم ارسال رسالتك بنجاح",
+              confirmButtonColor: "#198754", // اللون الأخضر
             icon: "success"
           });
         }
@@ -1780,3 +1781,87 @@ function loadSection(section){
 }
 
     /*Sign Section End*/ 
+
+
+    /*متطلبات الحصول على الرخصة*/
+const details = document.querySelector(".details");
+const price = document.querySelector(".price");
+details.addEventListener('click',()=>{
+ Swal.fire({
+  title: " المتطلبات",
+  
+  html:`
+  <!-- الأيقونة -->
+        <div style="background:#198754; width:60px; height:60px; border-radius:12px; display:flex; align-items:center; justify-content:center; margin:0 auto 15px;">
+          <i class="bi bi-car-front" style="font-size:28px; color:#fff;"></i>
+        </div> 
+     <h3 style="margin-bottom:20px; font-weight:bold; color:#333;">خصوصي</h3>
+
+        <!-- التفاصيل -->
+        <div style="text-align:right; font-size:16px; line-height:2; color:#333;">
+          <p>الوثائق المطلوبة :<b>صورتان شخصيتان , صورة عن الهوية</b></p>
+          <p> العمر الأدنى: <b>يبدأ بالفحوصات بعمر 17 سنة</b></p>
+          <p> الحصول على الرخصة: <b>يستلم الرخصة بعمر ال 17.5 سنة</b></p>
+        </div>`,
+  confirmButtonColor: "#198754", // اللون الأخضر
+  showClass: {
+    popup: `
+      animate__animated
+      animate__fadeInUp
+      animate__faster
+    `
+  },
+  hideClass: {
+    popup: `
+      animate__animated
+      animate__fadeOutDown
+      animate__faster
+    `
+  }
+});
+});
+price.addEventListener('click',()=>{
+ Swal.fire({
+  title: " الأسعار (خصوصي)",
+html: `
+      <div style="background:#fff; border-radius:12px; padding:20px; text-align:center; font-family:Tahoma;">
+        
+        <!-- الأيقونة -->
+        <div style="background:#198754; width:60px; height:60px; border-radius:12px; display:flex; align-items:center; justify-content:center; margin:0 auto 15px;">
+          <i class="bi bi-car-front" style="font-size:28px; color:#fff;"></i>
+        </div>
+
+        <!-- العنوان -->
+        <h3 style="margin-bottom:20px; font-weight:bold; color:#333;">خصوصي</h3>
+
+        <!-- التفاصيل -->
+        <div style="text-align:right; font-size:16px; line-height:2; color:#333;">
+          <p>✔ الدرس : <b>₪90</b></p>
+          <p>✔ التست الأول : <b>₪290</b></p>
+          <p>✔ التست الثاني وما فوق : <b>₪370</b></p>
+          <p>✔ العمر الأدنى : <b>17 سنة</b></p>
+        </div>
+
+      </div>
+    `,
+  confirmButtonColor: "#198754", // اللون الأخضر
+  showClass: {
+    popup: `
+      animate__animated
+      animate__fadeInUp
+      animate__faster
+    `
+  },
+  hideClass: {
+    popup: `
+      animate__animated
+      animate__fadeOutDown
+      animate__faster
+    `
+  }
+});
+});
+
+
+
+   
