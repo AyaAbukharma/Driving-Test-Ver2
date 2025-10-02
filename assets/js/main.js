@@ -38,6 +38,7 @@
     /*Sign Section Start*/
 // نربط الأزرار بالأحداث
 //console.log(document.querySelectorAll('.section-btn'));
+const sectionContent = document.querySelector("#sectionContent");
 document.querySelectorAll('.section-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const section = btn.getAttribute('data-section'); // نجيب اسم القسم
@@ -1786,7 +1787,8 @@ function loadSection(section){
     /*متطلبات الحصول على الرخصة*/
 const details = document.querySelector(".details");
 const price = document.querySelector(".price");
-details.addEventListener('click',()=>{
+details.addEventListener('click',(e)=>{
+ e.preventDefault();
  Swal.fire({
   title: " المتطلبات",
   
@@ -1820,7 +1822,8 @@ details.addEventListener('click',()=>{
   }
 });
 });
-price.addEventListener('click',()=>{
+price.addEventListener('click',(e)=>{
+  e.preventDefault();
  Swal.fire({
   title: " الأسعار (خصوصي)",
 html: `
@@ -1861,7 +1864,3 @@ html: `
   }
 });
 });
-
-
-
-   

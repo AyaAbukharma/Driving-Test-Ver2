@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-bs-theme="light">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driving Exam</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+     <title>Torya</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+ <style>
+
+      body {
+            background: linear-gradient(135deg, #198754 0%, #c1e63f 100%);  
+        }
+
+        .container-exam {
+          margin-top: 20px;
+            margin: 0 auto;
+            background: white;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        #loading {
+            text-align: center;
+            padding: 100px 20px;
+            font-size: 24px;
+            color: #198754;
+        }
+
+        #exam-content {
+            display: none;
+        }
+
+        .exam-layout {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            min-height: 600px;
+        }
+
+        /* القسم الجانبي */
+        .sidebar {
+            background: #f8f9fa;
+            padding: 30px 20px;
+            border-left: 2px solid #e0e0e0;
+        }
+
+        .progress-section {
+            margin-bottom: 30px;
+        }
+
+        .progress-label {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .progress-bar {
+            background: #e0e0e0;
+            height: 8px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 5px;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #4CAF50, #8BC34A);
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .progress-percentage {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 10px;
+        }
+
+        .timer-section {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .timer-label {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .timer {
+            font-size: 32px;
+            font-weight: bold;
+            color: #333;
+            font-family: 'Courier New', monospace;
+        }
+
+        .timer.text-danger {
+            color: #ff5722;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .auto-advance-toggle {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 50px;
+            height: 26px;
+            background: #ccc;
+            border-radius: 13px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .toggle-switch.active {
+            background: #4CAF50;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            top: 3px;
+            right: 3px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+
+        .toggle-switch.active .toggle-slider {
+            transform: translateX(-24px);
+        }
+
+        /* شبكة أرقام الأسئلة */
+        .questions-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+        }
+
+        .question-number {
+            aspect-ratio: 1;
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .question-number:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .question-number.current {
+            background: #198754;
+            color: white;
+            border-color: #198754;
+        }
+
+        .question-number.answered {
+            background: #4CAF50;
+            color: white;
+            border-color: #4CAF50;
+        }
+
+        /* منطقة السؤال */
+        .question-area {
+            padding: 40px;
+        }
+
+        .question-header {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #198754;
+        }
+
+        .question-content {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        .question-content p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .question-content img {
+            max-width: 200px;
+            display: block;
+            margin: 15px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .options-list {
+            list-style: none;
+        }
+
+        .option-item {
+            margin-bottom: 15px;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            padding: 18px 20px;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option-label:hover {
+            border-color: #198754;
+            background: #f0f7ff;
+            transform: translateX(-3px);
+        }
+
+        .option-label.selected {
+            border-color: #198754;
+            background: #e3f2fd;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.2);
+        }
+
+        .option-letter {
+            width: 35px;
+            height: 35px;
+            background: #198754;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-left: 15px;
+            flex-shrink: 0;
+        }
+
+        .option-text {
+            flex: 1;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .option-text img {
+            max-width: 150px;
+            margin: 5px auto;
+            display: block;
+        }
+
+        /* أزرار التنقل */
+        .navigation-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .btn-b {
+            padding: 15px 40px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-previous {
+            background: #9e9e9e;
+            color: white;
+        }
+
+        .btn-previous:hover:not(:disabled) {
+            background: #757575;
+            transform: translateY(-2px);
+        }
+
+        .btn-next {
+            background: #198754;
+            color: white;
+        }
+
+        .btn-next:hover {
+            background: #198754;
+            transform: translateY(-2px);
+        }
+
+        .btn-submit {
+            background: #f44336;
+            color: white;
+            display: none;
+        }
+
+        .btn-submit:hover {
+            background: #da190b;
+            transform: translateY(-2px);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* النتائج */
+        #result {
+            display: none;
+            padding: 40px;
+        }
+
+        .question-detail {
+            background: #f8f9fa;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .question-detail h6 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .question-detail .text-success {
+            color: #4CAF50;
+        }
+
+        .question-detail .text-danger {
+            color: #f44336;
+        }
+
+        .question-detail .text-muted {
+            color: #999;
+        }
+
+        .question-detail .text-info {
+            color: #198754;
+        }
+
+        .question-detail ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .question-detail ul li {
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            background: white;
+        }
+
+        .question-detail ul li.user-selected {
+            background: #ffe0e0;
+        }
+
+        .question-detail ul li.correct-answer {
+            background: #e0ffe0;
+            font-weight: bold;
+        }
+
+        .alert {
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .alert-success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+
+        .alert-warning {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+        }
+
+        .alert-danger {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+
+        /* تصميم متجاوب */
+        @media (max-width: 968px) {
+            .exam-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                border-left: none;
+                border-bottom: 2px solid #e0e0e0;
+            }
+
+            .question-area {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+ <!--Navbar Section Start-->
+ <div class="container" dir="rtl">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">التؤوريا</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="index.html">الرئيسية</a>
+        </li>
+       
+     <li class="nav-item dropdown">
+       <a class="nav-link dropdown-toggle" href="study.html" role="button">
+      دراسة التؤوريا
+       </a>
+       <ul class="dropdown-menu">
+       <li><a class="dropdown-item" href="book.html" target="_blank">كتاب التؤوريا</a></li>
+       <li><a class="dropdown-item" href="sign.html">اشارات المرور</a></li>
+       <li><a class="dropdown-item" href="signInStreet.html">اشارات المرور مع رسم توضيحي</a></li>
+       </ul>
+    </li>
+      <li class="nav-item">
+          <a class="nav-link " href="ExamPage.html">
+            أسئلة التؤوريا
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="HaveLicense.html">الحصول على الرخصة</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" href="contact.html">اتصل بنا</a>
+        </li>
+      </ul>
+      <form class="d-flex " role="search">
+        <input class="form-control ms-2" type="search" placeholder="ابحث" aria-label="Search"/>
+        <button class="btn btn-outline-success" type="submit">ابحث</button>
+      </form>
+    </div>
+  </div>
+</nav>
+ </div>
+  <!--Navbar Section End-->
+   <div class="container">
+      <div class="conatiner-section">
+      <h1 class="animate__animated animate__slideInUp">ابدأ <span>الامتحان</span> </h1>
+      </div>
+   </div> 
+
+   
+<div class="container">
+   <div class="card-header bg-dark text-white text-center py-3">
+        <h1 class="h3 mb-0">امتحان تؤوريا خصوصي 1</h1>
+   </div>
+    <div class="container-exam">
+        <div id="loading">جاري تحميل الامتحان...</div>
+        
+        <div id="exam-content">
+            <div class="exam-layout">
+                <!-- القسم الجانبي -->
+                <div class="sidebar">
+                    <!-- التقدم -->
+                    <div class="progress-section">
+                        <div class="progress-label">التقدم الحالي:</div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progress-fill"></div>
+                        </div>
+                        <div class="progress-percentage" id="progress-text">0%</div>
+                    </div>
+
+                    <!-- التايمر -->
+                    <div class="timer-section">
+                        <div class="timer-label">الوقت المتبقي</div>
+                        <div class="timer" id="timer">40:00</div>
+                    </div>
+
+                    <!-- الانتقال التلقائي -->
+                    <div class="auto-advance-toggle">
+                        <div class="toggle-container">
+                            <span>الانتقال التلقائي</span>
+                            <div class="toggle-switch" id="toggleSwitch">
+                                <div class="toggle-slider"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- شبكة أرقام الأسئلة -->
+                    <div class="questions-grid" id="questions-grid"></div>
+                </div>
+
+                <!-- منطقة السؤال -->
+                <div class="question-area">
+                    <h2 class="question-header" id="question-header">سؤال 1 من 30</h2>
+                    
+                    <div id="questions-container">
+                        <!-- يتم إدراج السؤال هنا -->
+                    </div>
+
+                    <form id="quiz-form">
+                        <div class="navigation-buttons">
+                            <button type="button" class="btn-b btn-previous" id="prev-btn" disabled>السابق</button>
+                            <button type="button" class="btn-b btn-next" id="next-btn">التالي</button>
+                            <button type="button" class="btn-b btn-submit" id="submit-btn">إنهاء الامتحان</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div id="result"></div>
+    </div>
+    </div>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+ <script src="assets/js/exam.js"></script>
+</body>
+</html>
+
+<!--// بيانات الأسئلة الافتراضية (استبدلها ببيانات حقيقية من JSON أو قاعدة بيانات حسب الـ ID)
+// هنا مثال بـ 5 أسئلة للامتحان 1؛ أضف المزيد أو قم بتحميلها ديناميكيًا
+const questionsData = {
+    1: [
+        {//1
+            question: `
+                <p>تعني الشاخصة</p>
+                <img src="assets/images/Warning/11.jpg" alt="إشارة مرور" style="max-width:150px; display:block; margin:10px auto;">
+            `,
+            options: ["مفترق تفرّع الى اليمين", "ممنوع الاستدارة الى اليمين", "خط وقوف على سطح الطريق", "ملتقى تفرّع طرق الى اليسار"],
+            correct: "أ"
+        },
+        {//2
+            question: "ما هي الشاخصة التي تسمح بالوقوف بجانب الرصيف بواسطة بطاقة وقوف:",
+            options: [
+                { value: "أ", img: "assets/images/Road/107.jpg" },
+                { value: "ب", img: "assets/images/Help Sign/136.jpg" },
+                { value: "ج", img: "assets/images/Help Sign/138.jpg" },
+                { value: "د", img: "assets/images/Road/122.jpg" }
+            ],
+            correct: "د"
+        },
+        {//3
+            question:  `
+                <p>ما معنى الشاخصة</p>
+                <img src="assets/images/Warning/27.jpg" alt="إشارة مرور" style="max-width:150px; display:block; margin:10px auto;">
+            `,
+            options: ["أولاد بالقرب من المكان " , "مكان عبور المارة على بعد 150م تقريبا ", "ممنوع دخول المارة ","سبيل للمشاة فقط"],
+            correct: "ب"
+        },
+       {//4
+            question:  `
+                <p>ما معنى الشاخصة</p>
+                <img src="assets/images/guidance/55.jpg" alt="إشارة مرور" style="max-width:150px; display:block; margin:10px auto;">
+            `,
+            options: ["ممنوع الوقوف والتوقف الا لتنفيذ أمر قانوني" , "ممنوع ايقاف المركبات في الجهة التي أقيمت فيها الشاخصة", "ممنوع دخول المركبات الميكانيكية ","مدخل ساحة خاصة"],
+            correct: "ب"
+        },
+        {//5
+            question:  `
+                <p>خط متقطع الى جانب خط متواصل معناه</p>
+                <img src="assets/images/Road/110.jpg" alt="إشارة مرور" style="max-width:150px; display:block; margin:10px auto;">
+            `,
+            options: ["يجوز اختراقهما إذا كان الخط المتقطع على يسار الخط المتواصل." , "لا يجوز اختراقهما في أية حالة من الحالات.", "يجوز اختراقهما عند تجاوز مركبة بطيئة فقط.","يجوز اختراقهما إذا كان الخط المتقطع على يمين الخط المتواصل."],
+            correct: "د"
+        },
+
+        {//6
+            question:  `
+                <p>ماذا تعني هذه الشاخصة</p>
+                <img src="assets/images/guidance/40.jpg" alt="إشارة مرور" style="max-width:150px; display:block; margin:10px auto;">
+            `,
+            options: ["يجوز تجاوز مركبة ميكانيكية تسير على عجلتين." , "جميع الإجابات صحيحة.","يجوز تجاوز مركبة غير ميكانيكية تسير على أكثر من عجلتين." ,"ممنوع تجاوز مركبة آلية تسير على أكثر من عجلتين."],
+            correct: "ب"
+        },
+        {//7
+            question:  `
+                <p>ماذا ينهي مفعول هذه الشاخصة</p>
+                <img src="assets/images/guidance/39.jpg" alt="إشارة مرور" style="max-width:150px; display:block; margin:10px auto;">
+            `,
+            options:["نهاية الطريق الضيقة أو المفترق القريب ." , { value: "ب", img: "assets/images/guidance/52.jpg" },"المفترق القريب فقط .","جميع الإجابات صحيحة."],
+            correct: "أ"
+        },
+        {//8
+            question:  `
+                <p>يسري معفول الشاخصة</p>
+                <img src="assets/images/guidance/36.jpg" alt="إشارة مرور" style="max-width:150px; display:block; margin:10px auto;">
+            `,
+            options:["فقط على اتجاه حركة السير المقابلة في الطريق التي أمامك.","على الطريق التي أمامك.","على الطريق التي تقود المركبة فيها.","على الطريق التي تقود المركبة فيها وحتى المفترق القريب."],
+            correct: "ب"
+        }
+        ,
+        {//9
+            question:  `
+                <p> تبعد الشاخصة أدناه عن ملتقى سكة الحديد</p>
+                <img src="assets/images/Warning/19.jpg" alt="إشارة مرور" style="max-width:150px; display:block; margin:10px auto;">
+            `,
+            options:[
+                "270م قبل الملتقى.",
+                {
+            value: "ب",
+            html: `  حسب وضعها فوق الشاخصة <img src="assets/images/Warning/20.jpg" style="max-width:100px; margin-left:10px;"> أو<img src="assets/images/Warning/21.jpg" style="max-width:100px; margin-left:10px;"> أو <img src="assets/images/Warning/22.jpg" style="max-width:100px; margin-left:10px;">`
+        },
+               
+            "150م قبل الملتقى.","10م قبل الملتقى."
+        ],
+            correct: "ب"
+        },
+         {//10
+            question:  `
+                <p>الشاخصة الآتية معناها</p>
+                <img src="assets/images/guidance/71.jpg" alt="إشارة مرور" style="max-width:150px; display:block; margin:10px auto;">
+            `,
+            options:["لا تجوز الاستدارة يميناً أو يساراً.","احذر من يمينك ومن يسارك.","الطريق تتحول من مسلك إلى مسلكين.","سر إلى اليمين أو إلى اليسار فقط."],
+            correct:"د"
+        },
+        
+     {//11
+           question: "ما هي الشاخصة التي معناها لافتة للتحذير وللإرشاد وللمنع أو للتحديد؟",
+           options: [
+                { value: "أ", img: "assets/images/Warning/32.jpg" },
+                { value: "ب", img: "assets/images/Help Sign/139.jpg" },
+                { value: "ج", img: "assets/images/Road/118.jpg" },
+                { value: "د", img: "assets/images/Help Sign/140.jpg" }
+            ],            
+            correct: "أ"
+        },
+       
+         {//12
+            question:  `
+                <p>الشاخصة الآتية معناها</p>
+                <img src="assets/images/guidance/73.jpg" alt="إشارة مرور" style="max-width:150px; display:block; margin:10px auto;">
+            `,
+            options:["يجوز عبور المكان الذي أقيمت عليه الشاخصة من اليمين ومن اليسار أيضاً.","الطريق تنحدر إلى اليمين والى اليسار.","ملتقى تفرع طرق إلى اليمين والى اليسار.","يجوز تجاوز المركبة التي أمامك من اليمين ومن اليسار أيضاً."],
+
+            correct: "أ"
+        },
+
+          {//13
+            question:  `
+                <p>الشاخصة الآتية معناها</p>
+                <img src="assets/images/Warning/16.jpg" alt="إشارة مرور" style="max-width:150px; display:block; margin:10px auto;">
+            `,
+
+            options:["اندماج شارع مع طريق جانبية لها حق الأولوية ، ممنوع الاستدارة إلى اليمين .","اندماج شارع له حق الأولوية مع طريق جانبية من اليسار ، ممنوع الاستدارة إلى الطريق الجانبية.","اندماج شارع له حق الأولوية مع طريق جانبية من اليمين ، ممنوع الاستدارة إلى الطريق الجانبية .","اندماج مع شارع له حق الأولوية ، ممنوع الاستدارة إلى اليسار ."],
+            correct: "ج"
+        },
+
+          {//14
+            question:  `
+                <p> بأية سرعة تسير عند رؤياك الشاخصة   </p>
+                <img src="assets/images/Warning/1.jpg" alt="إشارة مرور" style="max-width:150px; display:block; margin:10px auto;">
+            `,
+            options:["بالسرعة القصوى المسموح بها في أنظمة المرور.","بسرعة الغيار الأول فقط.","بسرعة تلائم وضع الطريق.","في المركبات التجارية بسرعة لا تزيد عن 40كم/ساعة وفي المركبات الخصوصية بسرعة لا تزيد عن 50كم/ساعة."],
+            correct: "ج"
+        },
+           {//15
+            question:  `
+                <p> هل هناك فرق بين الشاخصتين ادناه ؟</p>
+                <div class="row">
+                <img src="assets/images/Warning/10.jpg" alt="إشارة مرور" style="max-width:150px; display:block; margin:10px auto;">
+                <img src="assets/images/Warning/11.jpg" alt="إشارة مرور" style="max-width:150px; display:block; margin:10px auto;">
+                </div>
+            `,
+            options:["كلا، لا يوجد فرق بينهما.","نعم، الأولى تُحذر من مفترق تفرع والثانية تُحذر من مفترق تقاطع.","نعم، الأولى تُحذر من مفترق تقاطع والثانية تُحذر من مفترق تفرع.","نعم، الأولى تُحذر من ملتقى سكة حديد والثانية تُحذر من مفترق تفرع."],
+            correct: "ج"
+        },
+         {//16
+            question:  `
+                <p>اذا أقيمت الشاخصة الآتية فوق المسلك فتسري على</p>
+                <img src="assets/images/guidance/51.jpg" alt="إشارة مرور" style="max-width:150px; display:block; margin:10px auto;">
+            `,
+            options:["على مسلك التجاوز في الشارع.","على جميع المسالك في الشارع ما عدا مسلك المواصلات العمومية.","على جميع المسالك في الشارع.","على المسلك الذي تحتها."],
+            correct: "د"
+        },
+          {//17
+            question:  `
+                <p>الشاخصة معناها</p>
+                <img src="assets/images/Warning/19.jpg" alt="إشارة مرور" style="max-width:150px; display:block; margin:10px auto;">
+            `,
+            options:["أمامك محطة قطارات.","ملتقى سكة حديد ذات خط واحد.","أمامك ملتقى سكة حديد.","قف لأن القطار يمر الآن."],
+            correct: "ج"
+        },
+         {//18
+            question:  `
+                <p>الشاخصة معناها</p>
+                <img src="assets/images/Warning/13.jpg" alt="إشارة مرور" style="max-width:150px; display:block; margin:10px auto;">
+            `,
+            options:["اندماج طريق من اليسار ثم من اليمين.","تقاطع طرق من الأمام واليمين واليسار.","مفترقات طرق إلى اليسار ثم إلى اليمين.","مفترقات طرق إلى اليمين ثم إلى اليسار."],
+            correct: "د"
+        },
+
+
+        {//19
+    question: `
+        <p>عندما تقام الشاخصة أدناه فأين يذكر نوع الخطر؟</p>
+        <img src="assets/images/Warning/13.jpg" alt="إشارة مرور" style="max-width:150px; display:block; margin:10px auto;">
+    `,
+    options: [
+        {
+            value: "أ",
+            html: `<img src="assets/images/information/97.jpg" style="max-width:100px; margin-left:10px;"> على الشاخصة إذا كان الخطر في داخل المدن.`
+        },
+        {
+            value: "ب",
+            html: `<img src="assets/images/information/98.jpg" style="max-width:100px; margin-left:10px;"> على الشاخصة إذا كان الخطر في طريق سريعة.`
+        },
+        {
+            value: "ج",
+            html: `<img src="assets/images/Warning/32.jpg" style="max-width:100px; margin-left:10px;"> على الشاخصة`
+        },
+        {
+            value: "د",
+            html: "على سطح الطريق."
+        }
+    ],
+    correct: "ج"
+},
+
+       
+    {//20
+            question:  `
+                <p>الشاخصة معناها</p>
+                <img src="assets/images/guidance/45.jpg" alt="إشارة مرور" style="max-width:150px; display:block; margin:10px auto;">
+            `,
+            options:["ممنوع دخول الدراجات النارية باستثناء الدراجات النارية مع زورق جانبي .","ممنوع دخول الدراجات النارية .","ممنوع دخول الدراجات النارية التي تسير على عجلتين فقط .","ممنوع دخول الدراجات النارية باستثناء الدراجات النارية التي تجر مقطورة ."],
+            correct: "ب"
+        },
+          {//21
+            question:  `
+                <p>ضوء احمر واصفر مع بعض في الآلة الضوئية  </p>
+            `,
+            options:["اعبر المفترق بسرعة قبل أن يتحول الضوء إلى احمر.","استعد للوقوف عند ظهور الضوء الأحمر.","استعد للسير عند ظهور الضوء الأخضر.","خفف السرعة عند ظهور الضوء الأصفر."],
+            correct: "ج"
+        },
+         {//22
+            question:  `
+                <p> المسافة بين شاخصة تحذير والشيء التي تحذر منه تكون عادةً:</p>
+            `,
+        options:["100م." ,"150م","170م","250م"],
+            correct: "ب"
+        },
+
+        {//23
+            question:  `
+            <p>هل يجوز أن تقام الشاخصة الآتية في طريق خارج المدن ؟ </p>
+            `,
+        options:["نعم","كلا ، لا يجوز للمشاة أن يسيروا في طريق خارج المدن." ,"تُقام عند المحطات العمومية فقط.","تُقام فقط عند المحطات العمومية في طريق خارج المدن وليس في الطريق السريعة."],
+            correct: "أ"
+        },
+         {//24
+            question:  `
+            <p>ماذا ينهي الشاخصة الآتية؟</p>
+             <img src="assets/images/guidance/42.jpg" alt="إشارة مرور" style="max-width:150px; display:block; margin:10px auto;">
+            `,
+                options: [
+        {
+            value: "أ",
+            html: ` الشاخصةالآتية فقط <img src="assets/images/guidance/43.jpg" style="max-width:100px; margin-left:10px;">   .`
+        },
+        {
+            value: "ب",
+            html: ` الشاخصة<img src="assets/images/guidance/58.jpg" style="max-width:100px; margin-left:10px;"> `
+        },
+        {
+            value: "ج",
+            html: `<img src="assets/images/guidance/43.jpg" style="max-width:100px; margin-left:10px;"> المفترق القريب أو الشاخصة الآتية  إذا لم يكن هناك مفترق في المقطع الذي يُمنع فيه التجاوز. `
+        },
+        {
+            value: "د",
+            html: ` الشاخصة <img src="assets/images/guidance/59.jpg" style="max-width:100px; margin-left:10px;"> `
+        }
+    ],
+            correct: "ج"
+        },
+         {//25
+            question:  `
+        <p>هل يجوز لدراجة هوائية دخول شارع أقيمت على مدخله الشاخصة  </p>
+        <img src="assets/images/guidance/35.jpg" alt="إشارة مرور" style="max-width:150px; display:block; margin:10px auto;">
+        `,
+        options:["كلا لا يجوز.","نعم يجوز.","يجوز لها الدخول إذا كانت تسير على عجلتين.","يجوز لها الدخول إذا كانت تسير على ثلاث عجلات."],
+        correct: "أ"
+        },
+
+     {//26
+            question:  `
+        <p>هل يجوز لشخص يصطحب كلباً الدخول في شارع أقيمت على مدخله الشاخصة </p>
+        <img src="assets/images/guidance/38.jpg" alt="إشارة مرور" style="max-width:150px; display:block; margin:10px auto;">
+        `,
+        options:["يجوز للضرير فقط.","نعم يجوز.","كلا لا يجوز.","يجوز له فقط إذا كان الكلب مربوطاً بقشاط."],
+        correct: "ب"
+        },
+         {//27
+            question:  `
+          <p>تعني الشاخصة الآتية</p>
+          <img src="assets/images/guidance/46.jpg" alt="إشارة مرور" style="max-width:150px; display:block; margin:10px auto;">
+        `,
+        options:["ممنوع الدخول لجميع المركبات الميكانيكية ما عدا الدراجة النارية بدون زورق جانبي .","ممنوع الدخول لجميع المركبات بما في ذلك الدراجة النارية بدون زورق جانبي .","ممنوع الدخول لجميع المركبات بما في ذلك الدراجة النارية .","ممنوع الدخول لجميع المركبات الميكانيكية ."],
+        correct: "د"
+        },
+          {//28
+            question:  `
+          <p>تعني الشاخصة الآتية</p>
+          <img src="assets/images/guidance/75.jpg" alt="إشارة مرور" style="max-width:150px; display:block; margin:10px auto;">
+        `,
+        options:["طريق للمركبات الخصوصية والخصوصية المزدوجة الاستعمال والصالون العمومي فقط.","طريق للمركبات الميكانيكية التي تستطيع ويجوز لها السير بسرعة تزيد عن 55كم/ساعة .","طريق للمركبات الميكانيكية فقط .","طريق للمركبات الميكانيكية باستثناء الدراجة النارية بدون عربة جانبية ."],
+        correct: "ج"
+        },
+   {//29
+        question:  `
+          <p>تعني الشاخصة الآتية</p>
+          <img src="assets/images/guidance/43.jpg" alt="إشارة مرور" style="max-width:150px; display:block; margin:10px auto;">
+        `,
+
+        options:["لا يجوز للشاحنات مجاوزة المركبات الخصوصية فقط.","لا يجوز للشاحنات استعمال المسلك الأيسر .","نهاية مقطع الطريق الذي يسري عليه منع التجاوز .","ممنوع تجاوز مركبة تجارية يزيد وزنها الإجمالي عن 4000كغم ."],
+        correct: "ج"
+    },
+     {//30
+           question: "ما هي الشاخصة التي معناها لافتة للتحذير وللإرشاد وللمنع أو للتحديد؟",
+           options: [
+                { value: "أ", img: "assets/images/Road/121.jpg" },
+                { value: "ب", img: "assets/images/Road/118.jpg" },
+                { value: "ج", img: "assets/images/information/91.jpg" },
+                { value: "د", img: "assets/images/Road/122.jpg" }
+            ],            
+            correct: "أ"
+        },
+
+
+
+    ],
+    // أضف exams أخرى هنا، مثل: 2: [ ... ]
+};
+
+document.addEventListener('DOMContentLoaded', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const examId = parseInt(urlParams.get('id')) || 1;
+    // document.getElementById('exam-id').textContent = examId;
+    // document.getElementById('exam-title').textContent = `امتحان تؤوريا خصوصي - الامتحان رقم ${examId}`;
+
+    const loading = document.getElementById('loading');
+    const examContent = document.getElementById('exam-content');
+    const questionsContainer = document.getElementById('questions-container');
+    const progressFill = document.getElementById('progress-fill');
+    const progressText = document.getElementById('progress-text');
+    const timerEl = document.getElementById('timer');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const submitBtn = document.getElementById('submit-btn');
+    const quizForm = document.getElementById('quiz-form');
+    const resultDiv = document.getElementById('result');
+
+    let questions = questionsData[examId] || [];
+    if (questions.length === 0) {
+        if (loading) loading.textContent = 'لا توجد أسئلة لهذا الامتحان. يرجى التحقق.';
+        return;
+    }
+
+    let currentQuestion = 0;
+    let userAnswers = new Array(questions.length).fill(null); // حفظ إجابات المستخدم
+    let timeLeft = 40 * 60; // 40 دقيقة بالثواني
+    let timerInterval;
+    let startTime = Date.now();
+    let examSubmitted = false;
+
+    // محاكاة تحميل الأسئلة (يمكن استبدالها بـ fetch من JSON أو API)
+    setTimeout(() => {
+        if (loading) loading.style.display = 'none';
+        if (examContent) examContent.style.display = 'block';
+        displayQuestion();
+        startTimer();
+    }, 1500); // تأخير قصير لمحاكاة التحميل
+
+    function displayQuestion() {
+    if (currentQuestion >= questions.length) {
+        if (nextBtn) nextBtn.style.display = 'none';
+        if (prevBtn) prevBtn.style.display = 'none';
+        if (submitBtn) submitBtn.style.display = 'inline-block';
+        return;
+    }
+
+    const q = questions[currentQuestion];
+    
+    // تحويل options إلى مصفوفة موحدة للعرض
+    const formattedOptions = q.options.map((opt, i) => {
+        const label = ['أ', 'ب', 'ج', 'د'][i];
+        
+        // ✅ حالة 1: string عادي
+        if (typeof opt === 'string') {
+            return { label, html: opt };
+        } 
+        // ✅ حالة 2: object مع value و img
+        else if (opt.value && opt.img) {
+            return { 
+                label: opt.value, 
+                html: `<img src="${opt.img}" alt="${opt.value}" style="max-width:150px; display:block; margin:5px auto;" onerror="this.style.display='none';">`
+            };
+        }
+        // ✅ حالة 3: object مع value و html (هاي المهمة!)
+        else if (opt.value && opt.html) {
+            return { 
+                label: opt.value, 
+                html: opt.html 
+            };
+        }
+        // ✅ حالة 4: object مع html فقط بدون value
+        else if (opt.html) {
+            return { 
+                label, 
+                html: opt.html 
+            };
+        }
+        // ❌ fallback للحالات الغريبة
+        else {
+            console.warn('تنسيق غير معروف للخيار:', opt);
+            return { label, html: JSON.stringify(opt) };
+        }
+    });
+
+    if (questionsContainer) {
+        questionsContainer.innerHTML = `
+            <div class="question" dir="rtl">
+                <h4>سؤال ${currentQuestion + 1} من ${questions.length}</h4>
+                <div>${q.question}</div>
+                <ul class="options">
+                    ${formattedOptions.map(opt => {
+                        const selected = userAnswers[currentQuestion] === opt.label ? 'selected' : '';
+                        return `
+                            <li>
+                                <label class="option ${selected}" data-option="${opt.label}">
+                                    <span style="font-weight:bold; margin-left:10px;">${opt.label}:</span>
+                                    <span>${opt.html}</span>
+                                </label>
+                            </li>
+                        `;
+                    }).join('')}
+                </ul>
+            </div>
+        `;
+
+        // event listeners للخيارات
+        document.querySelectorAll('.option').forEach(opt => {
+            opt.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                if (examSubmitted) return;
+                this.closest('ul').querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+                this.classList.add('selected');
+                userAnswers[currentQuestion] = this.dataset.option;
+                console.log(`تم اختيار ${this.dataset.option} للسؤال ${currentQuestion + 1}`);
+                return false;
+            });
+        });
+    }
+
+    // تحديث التقدم
+    if (progressFill && progressText) {
+        const progress = ((currentQuestion + 1) / questions.length) * 100;
+        progressFill.style.width = progress + '%';
+        progressText.textContent = `التقدم ${Math.round(progress)}% (${currentQuestion + 1}/${questions.length})`;
+    }
+
+    // تحديث الأزرار
+    if (prevBtn) prevBtn.disabled = currentQuestion === 0;
+    if (nextBtn) {
+        nextBtn.disabled = false;
+        nextBtn.style.display = currentQuestion === questions.length - 1 ? 'none' : 'inline-block';
+    }
+    if (submitBtn) submitBtn.style.display = currentQuestion === questions.length - 1 ? 'inline-block' : 'none';
+}
+
+    // زر السابق
+    if (prevBtn) {
+        prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                displayQuestion();
+            }
+            return false;
+        });
+    }
+
+    // زر التالي
+    if (nextBtn) {
+        nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            if (currentQuestion < questions.length - 1) {
+                if (!userAnswers[currentQuestion]) {
+                    if (typeof Swal !== 'undefined') {
+                        Swal.fire({
+                            title: 'تحذير!',
+                            text: 'لم تقم باختيار إجابة لهذا السؤال. سيتم التقدم، لكن الإجابة ستُحسب كخاطئة.',
+                            icon: 'warning',
+                            confirmButtonText: 'متابعة',
+                            timer: 2000,
+                            showConfirmButton: false
+                        });
+                    } else {
+                        alert('تحذير: لم تقم باختيار إجابة لهذا السؤال.');
+                    }
+                }
+                currentQuestion++;
+                displayQuestion();
+                console.log(`انتقل إلى السؤال ${currentQuestion + 1}`);
+            }
+            return false;
+        });
+    }
+
+    // زر إنهاء الامتحان (الإضافة الجديدة - هذا كان مفقود!)
+    if (submitBtn) {
+        submitBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('تم الضغط على زر إنهاء الامتحان'); // للتتبع
+            submitExam(false); // غير timeUp
+            return false;
+        });
+    }
+
+    // منع submit الـ form نفسه (إضافة إضافية للتأكيد)
+    if (quizForm) {
+        quizForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('تم منع submit الـ form'); // للتتبع
+            submitExam(false);
+            return false;
+        });
+    }
+
+    // بدء التايمر
+    function startTimer() {
+        if (timerInterval) clearInterval(timerInterval);
+        timerInterval = setInterval(() => {
+            timeLeft--;
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            if (timerEl) {
+                timerEl.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+                timerEl.className = timeLeft <= 300 ? 'timer text-danger' : 'timer';
+            }
+
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                submitExam(true);
+                return;
+            }
+        }, 1000);
+    }
+
+    // إرسال الامتحان (مكتمل بالكامل)
+    function submitExam(timeUp = false) {
+        if (examSubmitted) return;
+        examSubmitted = true;
+        if (timerInterval) clearInterval(timerInterval);
+
+        console.log('بدء حساب النتيجة...'); // للتتبع
+
+        const endTime = Date.now();
+        const timeTaken = Math.round((endTime - startTime) / 1000 / 60);
+
+        let score = 0;
+        questions.forEach((q, i) => {
+            if (userAnswers[i] === q.correct) score++;
+        });
+        const totalQuestions = questions.length;
+        const percentage = Math.round((score / totalQuestions) * 100);
+
+        // إخفاء محتوى الامتحان
+        if (examContent) examContent.style.display = 'none';
+        if (loading) loading.style.display = 'none';
+
+        let motivationalMessage = '';
+        let icon = 'info';
+        if (percentage >= 80) {
+            motivationalMessage = 'ممتاز! أنت متفوق، استمر في التعلم لتصبح الأفضل.';
+            icon = 'success';
+        } else if (percentage >= 60) {
+            motivationalMessage = 'جيد جدًا! أنت على الطريق الصحيح، زد من مجهودك قليلاً.';
+            icon = 'success';
+        } else if (percentage >= 40) {
+            motivationalMessage = 'هناك مجال للتحسين، لا تستسلم، المحاولة التالية ستكون أفضل.';
+            icon = 'warning';
+        } else {
+            motivationalMessage = 'لا تقلق، النجاح يأتي بالممارسة. ابدأ من جديد وستنجح!';
+            icon = 'error';
+        }
+ // عرض SweetAlert (مع fallback إذا لم يكن SweetAlert محمل)
+        if (typeof Swal !== 'undefined') {
+            Swal.fire({
+                title: timeUp ? 'انتهى الوقت!' : 'تم إنهاء الامتحان بنجاح!',
+                html: `
+                    <div style="text-align: center; direction: rtl;">
+                        <p><strong>نتيجتك: ${score} / ${totalQuestions} (${percentage}%)</strong></p>
+                        <p>${motivationalMessage}</p>
+                        <p>تم إكمال الامتحان في ${timeTaken} دقيقة.</p>
+                    </div>
+                `,
+                icon: icon,
+                confirmButtonText: 'عرض التفاصيل',
+                allowOutsideClick: false,
+                backdrop: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    showResults(score, totalQuestions, percentage, motivationalMessage, timeTaken, icon);
+                }
+                 });
+        } else {
+            // Fallback بـ alert بسيط
+            alert(`${timeUp ? 'انتهى الوقت!' : 'تم إنهاء الامتحان!'} \nنتيجتك: ${score}/${totalQuestions} (${percentage}%) \n${motivationalMessage} \nالوقت: ${timeTaken} دقيقة \nاضغط موافق لعرض التفاصيل.`);
+            showResults(score, totalQuestions, percentage, motivationalMessage, timeTaken, icon);
+        }
+    }
+
+
+    // دالة مساعدة لعرض النتائج في الصفحة مع تفاصيل الأخطاء (الإكمال الكامل هنا)
+function showResults(score, totalQuestions, percentage, motivationalMessage, timeTaken, icon) {
+    if (resultDiv) {
+        // بناء تفاصيل كل سؤال
+        let detailsHtml = '<div id="exam-details" style="margin-top: 20px; direction: rtl; display: block;">';
+        detailsHtml += '<h5>تفاصيل الإجابات:</h5>';
+        
+        questions.forEach((q, i) => {
+            const userAnswer = userAnswers[i];
+            const isCorrect = userAnswer === q.correct;
+            const isAnswered = userAnswer !== null;
+            let statusIcon = isAnswered ? (isCorrect ? '✅' : '❌') : '❓';
+            let statusText = isAnswered ? (isCorrect ? 'صحيح' : 'خاطئ') : 'غير مجاب';
+            let statusClass = isAnswered ? (isCorrect ? 'text-success' : 'text-danger') : 'text-muted';
+
+            // تحويل options للعرض في التفاصيل (مثل displayQuestion) - الإكمال الكامل هنا
+            const formattedOptions = q.options.map((opt, j) => {
+                const label = ['أ', 'ب', 'ج', 'د'][j];
+                let optionClass = '';
+                let optionIcon = '';
+                if (userAnswer === label) {
+                    optionClass = 'user-selected';
+                    optionIcon = ' (إجابتك)';
+                }
+                if (label === q.correct) {
+                    optionClass += ' correct-answer';
+                    optionIcon += ' (الصحيحة)';
+                }
+                let optionContent = `${label}: `;
+                if (typeof opt === 'string') {
+                    optionContent += opt + optionIcon;
+                } else if (typeof opt === 'object' && opt.value && opt.img) {
+                    optionContent += `<img src="${opt.img}" alt="${label}" style="max-width:150px; display:block; margin:5px auto;" onerror="this.style.display='none';"> ${optionIcon}`;
+                } else {
+                    // fallback
+                    optionContent += String(opt) + optionIcon;
+                }
+                return { label, content: optionContent, class: optionClass };
+            });
+
+            detailsHtml += `
+                <div class="question-detail mb-4 p-3 border rounded" dir="rtl">
+                    <h6>سؤال ${i + 1}: ${q.question}</h6>
+                    <p class="${statusClass}"><strong>${statusIcon} ${statusText}</strong></p>
+                    <ul class="options list-unstyled">
+                        ${formattedOptions.map(opt => `<li class="${opt.class}">${opt.content}</li>`).join('')}
+                    </ul>
+                    <p class="text-info"><strong>الإجابة الصحيحة: ${q.correct}</strong></p>
+                </div>
+            `;
+        });
+        
+        detailsHtml += '</div>';
+        detailsHtml += '<script>function toggleDetails() { const details = document.getElementById("exam-details"); const btn = document.getElementById("toggle-details"); if (details.style.display === "none") { details.style.display = "block"; btn.textContent = "إخفاء التفاصيل"; } else { details.style.display = "none"; btn.textContent = "عرض التفاصيل"; } }</script>';
+
+        // HTML الرئيسي للنتائج
+        resultDiv.innerHTML = `
+            <div class="alert alert-${icon === 'success' ? 'success' : icon === 'warning' ? 'warning' : 'danger'}" dir="rtl">
+                <h4>نتيجة الامتحان ${examId}</h4>
+                <p>الدرجة: ${score} من ${totalQuestions} (${percentage}%)</p>
+                <p>${motivationalMessage}</p>
+                <p>الوقت المستغرق: ${timeTaken} دقيقة</p>
+                ${detailsHtml}
+                <a href="ExamPage.html" class="btn btn-primary mt-3">العودة إلى الامتحانات</a>
+            </div>
+        `;
+        resultDiv.style.display = 'block';
+    }
+
+    // حفظ النتيجة في localStorage
+    localStorage.setItem(`exam_${examId}_result`, JSON.stringify({
+        score: percentage,
+        timeTaken: timeTaken,
+        date: new Date().toLocaleString('ar-SA')
+    }));
+
+    // اختياري: إرسال إلى خادم (مثال بـ fetch)
+    // fetch('/api/submit-exam', {
+    //     method: 'POST',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify({ examId, score: percentage, timeTaken })
+    // }).catch(err => console.error('فشل في إرسال النتيجة:', err));
+}
+});
+
+
+-->
